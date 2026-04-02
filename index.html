@@ -3,20 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free Trading Course – Learn trading from basics to advanced strategies. No experience needed. Start earning today.">
-    <title>TradeNova • Free Trading Course | Start Earning Today</title>
-    <!-- Tailwind CSS CDN -->
+    <title>NEURA • AI &amp; Machine Learning Jobs</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- Chart.js for animated hero charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Poppins:wght@500;600&amp;display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Space+Grotesk:wght@500&amp;display=swap');
         
         :root {
-            --gold: #facc15;
-            --blue: #00d4ff;
+            --neon-blue: #00f5ff;
+            --neon-purple: #c026d3;
         }
         
         * {
@@ -29,716 +24,444 @@
             font-family: 'Inter', system_ui, sans-serif;
         }
         
-        .heading-font {
-            font-family: 'Poppins', sans-serif;
+        .logo-font {
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .hero-bg {
-            background: radial-gradient(circle at 30% 20%, rgba(250, 204, 21, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%);
-        }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .neon-glow {
-            box-shadow: 0 0 25px -5px rgb(250 204 21),
-                        0 0 10px -3px rgb(0 212 255);
-        }
-
-        .section-header {
-            position: relative;
+            background: radial-gradient(circle at 50% 30%, rgba(0, 245, 255, 0.15) 0%, rgba(192, 38, 211, 0.15) 50%, transparent 80%);
         }
         
-        .section-header::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(to right, #facc15, #00d4ff);
-            border-radius: 9999px;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-25px); }
+        .neon-text {
+            text-shadow: 
+                0 0 10px var(--neon-blue),
+                0 0 20px var(--neon-blue),
+                0 0 40px var(--neon-purple);
         }
         
-        .animate-float {
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .live-ticker {
-            animation: tickerSlide 25s linear infinite;
-        }
-
-        @keyframes chartPulse {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-
-        .card-hover {
+        .job-card {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .card-hover:hover {
-            transform: translateY(-12px) scale(1.03);
-            box-shadow: 0 25px 50px -12px rgb(250 204 21 / 0.25);
+        .job-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 0 40px -10px rgb(0 245 255);
         }
-
-        .sticky-cta {
-            animation: slideUp 0.4s ease forwards;
+        
+        .price-tag {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: #00f5ff;
         }
-
-        @keyframes slideUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
+        
+        .modal {
+            animation: modalPop 0.3s ease-out;
         }
-
-        .star {
-            animation: starPop 0.6s ease forwards;
+        
+        @keyframes modalPop {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        .neural-bg {
+            animation: neuralFloat 25s linear infinite;
+        }
+        
+        .glow-button {
+            position: relative;
+        }
+        
+        .glow-button::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(90deg, #00f5ff, #c026d3);
+            filter: blur(12px);
+            opacity: 0.6;
+            z-index: -1;
+            border-radius: inherit;
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        
+        .sticky-apply {
+            animation: float 3s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="tailwind-ready bg-neutral-950 text-white overflow-x-hidden">
+<body class="tailwind-ready bg-[#0a0a0f] text-white overflow-x-hidden">
     <!-- NAVBAR -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-lg border-b border-white/10">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0f]/90 backdrop-blur-xl border-b border-white/10">
         <div class="max-w-screen-2xl mx-auto px-8 py-5 flex items-center justify-between">
-            <!-- Logo -->
-            <div class="flex items-center gap-x-2">
-                <div class="w-9 h-9 bg-gradient-to-br from-amber-400 to-cyan-400 rounded-2xl flex items-center justify-center text-black font-bold text-2xl rotate-12">📈</div>
-                <h1 class="heading-font text-3xl tracking-tighter font-semibold">TradeNova</h1>
+            <div class="flex items-center gap-x-3">
+                <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-[#00f5ff] to-[#c026d3] flex items-center justify-center text-2xl shadow-[0_0_25px_-5px] shadow-[#00f5ff]">
+                    🤖
+                </div>
+                <h1 class="logo-font text-3xl tracking-[-2px] neon-text">NEURA</h1>
+                <span class="text-xs font-mono tracking-[2px] bg-white/10 text-[#00f5ff] px-3 py-1 rounded-3xl">AI•FUTURE</span>
             </div>
-
-            <!-- Desktop Menu -->
+            
             <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-                <a href="#overview" class="hover:text-amber-400 flex items-center gap-x-1">
-                    <i class="fa-solid fa-book"></i>
-                    <span>Overview</span>
+                <a href="#jobs" onclick="smoothScrollTo('jobs')" class="hover:text-[#00f5ff] flex items-center gap-x-1">
+                    <i class="fa-solid fa-briefcase"></i>
+                    JOBS
                 </a>
-                <a href="#modules" class="hover:text-amber-400 flex items-center gap-x-1">
-                    <i class="fa-solid fa-layer-group"></i>
-                    <span>Modules</span>
-                </a>
-                <a href="#benefits" class="hover:text-amber-400 flex items-center gap-x-1">
-                    <i class="fa-solid fa-gem"></i>
-                    <span>Benefits</span>
-                </a>
-                <a href="#testimonials" class="hover:text-amber-400 flex items-center gap-x-1">
-                    <i class="fa-solid fa-users"></i>
-                    <span>Success Stories</span>
+                <a href="#featured" onclick="smoothScrollTo('featured')" class="hover:text-[#00f5ff]">Featured Roles</a>
+                <a href="#companies" onclick="smoothScrollTo('companies')" class="hover:text-[#00f5ff]">Companies</a>
+                <a href="#insights" onclick="smoothScrollTo('insights')" class="hover:text-[#00f5ff]">AI Insights</a>
+                <div class="w-px h-5 bg-white/20"></div>
+                <a href="https://hubverify.com/cl/?o=69cd67b55be8e" target="_blank" 
+                   class="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-3xl flex items-center gap-x-2 text-sm font-semibold">
+                    <i class="fa-solid fa-rocket"></i>
+                    POST A JOB
                 </a>
             </div>
-
-            <!-- Right side -->
+            
             <div class="flex items-center gap-x-4">
-                <div class="hidden sm:flex items-center bg-white/10 text-xs font-medium px-4 h-9 rounded-3xl border border-white/20">
-                    <span class="text-emerald-400">✅</span>
-                    <span class="ml-1.5">10,347 students enrolled</span>
+                <div class="hidden sm:flex items-center bg-white/5 text-xs font-mono px-4 h-9 rounded-3xl border border-white/10">
+                    <span class="text-[#00f5ff]">1000+</span>
+                    <span class="ml-1 text-white/70">AI ROLES LIVE</span>
                 </div>
                 
-                <a href="https://singingfiles.com/1887307" target="_blank"
-                   class="px-7 py-3 bg-gradient-to-r from-amber-400 to-cyan-400 hover:from-amber-300 hover:to-cyan-300 text-black font-semibold rounded-3xl flex items-center gap-x-2 text-sm uppercase tracking-widest shadow-lg neon-glow">
-                    <i class="fa-solid fa-rocket"></i>
-                    START FREE COURSE
-                </a>
-
-                <!-- Mobile menu button -->
-                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl">
-                    <i class="fa-solid fa-bars" id="mobile-icon"></i>
+                <button onclick="showLoginModal()" 
+                        class="px-5 py-2 text-sm font-semibold border border-white/30 hover:border-[#00f5ff] rounded-3xl flex items-center">
+                    <i class="fa-solid fa-circle-user mr-2"></i>
+                    SIGN IN
+                </button>
+                
+                <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 flex items-center justify-center text-2xl">
+                    <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-neutral-900 border-t border-white/10 px-8 py-6">
-            <div class="flex flex-col gap-y-6 text-lg">
-                <a href="#overview" onclick="toggleMobileMenu()" class="flex items-center gap-x-3 hover:text-amber-400">
-                    <i class="fa-solid fa-book w-5"></i> Course Overview
-                </a>
-                <a href="#modules" onclick="toggleMobileMenu()" class="flex items-center gap-x-3 hover:text-amber-400">
-                    <i class="fa-solid fa-layer-group w-5"></i> Course Modules
-                </a>
-                <a href="#benefits" onclick="toggleMobileMenu()" class="flex items-center gap-x-3 hover:text-amber-400">
-                    <i class="fa-solid fa-gem w-5"></i> Why Join
-                </a>
-                <a href="#testimonials" onclick="toggleMobileMenu()" class="flex items-center gap-x-3 hover:text-amber-400">
-                    <i class="fa-solid fa-users w-5"></i> Student Reviews
-                </a>
-                <a href="https://singingfiles.com/1887307" target="_blank" 
-                   class="mt-4 w-full text-center py-4 bg-gradient-to-r from-amber-400 to-cyan-400 text-black font-bold rounded-3xl">
-                    START FREE COURSE NOW
+        
+        <div id="mobileMenu" class="hidden md:hidden px-8 pb-6 border-t border-white/10 bg-[#0a0a0f]">
+            <div class="flex flex-col gap-y-4 pt-4 text-lg">
+                <a href="#jobs" onclick="smoothScrollTo('jobs');toggleMobileMenu()" class="flex items-center gap-x-3 py-3">🤖 Browse All AI Jobs</a>
+                <a href="#featured" onclick="smoothScrollTo('featured');toggleMobileMenu()" class="flex items-center gap-x-3 py-3">Featured Roles</a>
+                <a href="https://hubverify.com/cl/?o=69cd67b55be8e" target="_blank" class="glow-button bg-gradient-to-r from-[#00f5ff] to-[#c026d3] text-black font-bold py-4 rounded-3xl flex items-center justify-center gap-x-3">
+                    <i class="fa-solid fa-rocket"></i>
+                    APPLY TO ALL OPEN ROLES
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <header id="home" class="min-h-screen pt-20 hero-bg flex items-center relative">
-        <div class="max-w-screen-2xl mx-auto px-8 grid md:grid-cols-2 gap-12 items-center">
-            
-            <!-- Left Content -->
-            <div class="space-y-8">
-                <div class="inline-flex items-center gap-x-2 bg-white/10 text-amber-400 text-sm font-medium px-6 py-2 rounded-3xl border border-amber-400/30">
-                    <i class="fa-solid fa-fire"></i>
-                    LIMITED FREE ACCESS
+    <!-- HERO -->
+    <header id="home" class="pt-24 min-h-screen hero-bg flex items-center relative">
+        <div class="absolute inset-0 neural-bg pointer-events-none opacity-10 flex items-center justify-center overflow-hidden">
+            <svg width="100%" height="100%" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                <defs>
+                    <linearGradient id="neuralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00f5ff"/>
+                        <stop offset="100%" stop-color="#c026d3"/>
+                    </linearGradient>
+                </defs>
+                <circle cx="300" cy="200" r="12" fill="#00f5ff" opacity="0.8"/>
+                <circle cx="600" cy="150" r="12" fill="#c026d3" opacity="0.8"/>
+                <circle cx="900" cy="280" r="12" fill="#00f5ff" opacity="0.8"/>
+                <circle cx="250" cy="500" r="12" fill="#c026d3" opacity="0.8"/>
+                <circle cx="750" cy="520" r="12" fill="#00f5ff" opacity="0.8"/>
+                <circle cx="1050" cy="420" r="12" fill="#c026d3" opacity="0.8"/>
+                
+                <line x1="300" y1="200" x2="600" y2="150" stroke="url(#neuralGrad)" stroke-width="3" stroke-opacity="0.4"/>
+                <line x1="600" y1="150" x2="900" y2="280" stroke="url(#neuralGrad)" stroke-width="3" stroke-opacity="0.4"/>
+                <line x1="300" y1="200" x2="250" y2="500" stroke="url(#neuralGrad)" stroke-width="3" stroke-opacity="0.4"/>
+                <line x1="900" y1="280" x2="750" y2="520" stroke="url(#neuralGrad)" stroke-width="3" stroke-opacity="0.4"/>
+                <line x1="750" y1="520" x2="1050" y2="420" stroke="url(#neuralGrad)" stroke-width="3" stroke-opacity="0.4"/>
+            </svg>
+        </div>
+        
+        <div class="max-w-screen-2xl mx-auto px-8 grid md:grid-cols-12 gap-12 items-center relative z-10">
+            <div class="md:col-span-7">
+                <div class="inline-flex items-center gap-x-2 bg-white/10 text-[#00f5ff] text-sm font-mono tracking-widest px-6 py-2 rounded-3xl mb-6 border border-white/10">
+                    <div class="w-2 h-2 bg-[#00f5ff] rounded-full animate-pulse"></div>
+                    LIVE • 1,247 AI ROLES OPEN RIGHT NOW
                 </div>
                 
-                <h1 class="heading-font text-6xl md:text-7xl leading-none font-semibold tracking-tighter">
-                    Learn Trading &amp; Start Earning Today 📈
+                <h1 class="text-6xl md:text-7xl font-bold leading-none tracking-[-3px] neon-text mb-6">
+                    Top AI &amp; Machine Learning<br>Jobs Hiring Now <span class="text-7xl">🤖</span>
                 </h1>
                 
-                <p class="text-2xl md:text-3xl text-neutral-300 max-w-lg">
-                    Free Beginner to Advanced Trading Course – No Experience Needed
+                <p class="text-xl text-white/70 max-w-xl mb-10">
+                    Cutting-edge careers at the frontier of artificial intelligence. 
+                    Build tomorrow’s breakthroughs. Remote-first. Unlimited upside.
                 </p>
                 
-                <!-- Trust signals -->
-                <div class="flex items-center gap-x-8">
-                    <div class="flex -space-x-4">
-                        <div class="w-8 h-8 bg-emerald-400 rounded-2xl flex items-center justify-center text-xs ring-2 ring-neutral-950">🇮🇳</div>
-                        <div class="w-8 h-8 bg-blue-400 rounded-2xl flex items-center justify-center text-xs ring-2 ring-neutral-950">🇧🇷</div>
-                        <div class="w-8 h-8 bg-purple-400 rounded-2xl flex items-center justify-center text-xs ring-2 ring-neutral-950">🇦🇪</div>
-                    </div>
-                    <div>
-                        <div class="flex text-amber-400">
-                            ★★★★☆ <span class="ml-2 text-neutral-400 text-sm">4.98 (2,847 reviews)</span>
+                <div class="bg-[#111118] border border-white/10 rounded-3xl p-2 max-w-2xl shadow-2xl shadow-[#00f5ff]/10">
+                    <div class="flex flex-col md:flex-row gap-3">
+                        <div class="flex-1 relative">
+                            <i class="fa-solid fa-magnifying-glass absolute left-6 top-1/2 -translate-y-1/2 text-[#00f5ff]"></i>
+                            <input id="skillsInput" type="text" placeholder="Python, TensorFlow, LLM..." 
+                                   class="w-full bg-transparent border-0 pl-14 py-5 text-lg placeholder:text-white/40 focus:outline-none">
                         </div>
-                        <p class="text-sm text-neutral-400">Trusted by 10,000+ learners worldwide</p>
-                    </div>
-                </div>
-
-                <!-- CTA -->
-                <div class="flex flex-wrap gap-4">
-                    <a href="https://singingfiles.com/1887307" target="_blank"
-                       onclick="triggerConversion()"
-                       class="px-10 py-6 text-xl font-semibold bg-gradient-to-r from-amber-400 to-cyan-400 text-black rounded-3xl flex items-center justify-center gap-x-4 hover:scale-105 neon-glow shadow-2xl">
-                        <span>START FREE COURSE</span>
-                        <i class="fa-solid fa-arrow-right text-3xl"></i>
-                    </a>
-                    
-                    <!-- Countdown -->
-                    <div class="glass px-6 py-6 rounded-3xl flex flex-col items-center justify-center">
-                        <p class="text-xs uppercase tracking-[1px] text-cyan-400 mb-1">Offer ends soon</p>
-                        <div id="countdown" class="flex items-center gap-x-4 text-4xl font-mono font-bold text-white">
-                            <div><span id="days" class="text-amber-400">03</span><span class="text-xs block text-neutral-400 -mt-1">DAYS</span></div>
-                            <div class="text-amber-400">:</div>
-                            <div><span id="hours" class="text-amber-400">14</span><span class="text-xs block text-neutral-400 -mt-1">HRS</span></div>
-                            <div class="text-amber-400">:</div>
-                            <div><span id="minutes" class="text-amber-400">22</span><span class="text-xs block text-neutral-400 -mt-1">MIN</span></div>
+                        <div class="flex-1 relative md:border-l border-white/10">
+                            <i class="fa-solid fa-location-dot absolute left-6 top-1/2 -translate-y-1/2 text-[#c026d3]"></i>
+                            <input id="locationInput" type="text" placeholder="Remote • Hybrid • Anywhere" 
+                                   class="w-full bg-transparent border-0 pl-14 py-5 text-lg placeholder:text-white/40 focus:outline-none">
                         </div>
+                        <button onclick="performSearch()" 
+                                class="glow-button md:w-36 bg-gradient-to-r from-[#00f5ff] to-[#c026d3] hover:from-[#00f5ff] hover:to-[#00f5ff] text-black font-semibold text-xl px-10 py-5 rounded-3xl flex items-center justify-center">
+                            <i class="fa-solid fa-arrow-right mr-2"></i>
+                            SEARCH
+                        </button>
                     </div>
                 </div>
-
-                <div class="flex items-center gap-x-8 text-sm text-neutral-400">
-                    <div class="flex items-center"><i class="fa-solid fa-lock mr-2"></i> No credit card needed</div>
-                    <div class="flex items-center"><i class="fa-solid fa-infinity mr-2"></i> Lifetime access</div>
-                    <div class="flex items-center"><i class="fa-solid fa-headset mr-2"></i> Community support</div>
-                </div>
+                
+                <p class="text-xs text-white/40 mt-4 flex items-center gap-x-6">
+                    <span class="flex items-center"><i class="fa-solid fa-check mr-1"></i> Trending: Agents • Multimodal • Quantum ML</span>
+                    <span>1,247 roles • 98 hiring this week</span>
+                </p>
             </div>
-
-            <!-- Right Visual: Updated Trading Animation -->
-            <div class="relative hidden md:flex justify-center">
-                <div class="relative w-full max-w-lg">
-                    <!-- Glow orb -->
-                    <div class="absolute -inset-10 bg-gradient-to-br from-amber-400/30 to-cyan-400/30 rounded-[100px] blur-3xl animate-pulse"></div>
-                    
-                    <div class="glass rounded-3xl p-6 shadow-2xl relative z-10">
-                        
-                        <!-- Updated Live Pair Header with cycling pairs -->
-                        <div class="flex justify-between items-center mb-6">
-                            <div id="live-pair-container" class="flex items-center gap-x-3">
-                                <p class="text-amber-400 text-sm font-medium">LIVE MARKET SIMULATOR</p>
-                                <div id="current-pair-display" class="text-2xl font-semibold flex items-center"></div>
-                            </div>
-                            
-                            <div class="flex items-center gap-x-2 text-xs font-mono">
-                                <span id="live-dot" class="relative flex h-3 w-3">
-                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                    <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400"></span>
-                                </span>
-                                <span class="text-emerald-400 font-medium">LIVE</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Canvas Chart (trading animation kept + updated) -->
-                        <canvas id="heroChart" class="w-full h-80"></canvas>
-                        
-                        <!-- Floating profit badge (updated for global pairs) -->
-                        <div id="floating-profit" 
-                             class="absolute -top-4 -right-4 bg-white/10 text-amber-400 text-xs font-bold px-5 py-2 rounded-3xl flex items-center gap-x-2 neon-glow animate-float">
-                            <i class="fa-solid fa-chart-line"></i>
-                            <span id="profit-text">+$1,840 today</span>
-                        </div>
-                        
-                        <!-- Live pairs ticker strip (new addition - 5 pairs) -->
-                        <div class="mt-6 pt-4 border-t border-white/10 overflow-hidden">
-                            <div class="flex gap-x-8 text-sm whitespace-nowrap live-ticker" id="ticker-strip">
-                                <!-- Populated by JS -->
-                            </div>
-                        </div>
-                    </div>
+            
+            <div class="hidden md:flex md:col-span-5 justify-end">
+                <div class="relative w-96 h-96 bg-gradient-to-br from-[#00f5ff]/10 to-[#c026d3]/10 rounded-[4rem] flex items-center justify-center border border-white/10">
+                    <div class="text-[180px] animate-[spin_30s_linear_infinite] opacity-80">🧠</div>
                 </div>
             </div>
         </div>
-
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-12 left-1/2 flex flex-col items-center text-xs text-neutral-400">
-            <div class="mb-2 animate-bounce">SCROLL FOR MORE</div>
-            <i class="fa-solid fa-chevron-down"></i>
-        </div>
-
-        <!-- Background animated elements -->
-        <div class="absolute top-20 right-12 text-6xl opacity-10 animate-float" style="animation-delay: 0.5s;">📊</div>
-        <div class="absolute bottom-40 left-12 text-7xl opacity-10 animate-float" style="animation-delay: 1.8s;">💰</div>
-        <div class="absolute top-1/3 left-1/4 text-5xl opacity-10 animate-float" style="animation-delay: 2.2s;">📈</div>
     </header>
 
-    <!-- COURSE OVERVIEW (unchanged) -->
-    <section id="overview" class="max-w-screen-2xl mx-auto px-8 py-24">
-        <div class="text-center mb-16">
-            <span class="px-5 py-2 text-amber-400 bg-amber-400/10 text-sm font-semibold rounded-3xl">WHAT YOU WILL MASTER</span>
-            <h2 class="heading-font text-5xl mt-4">From Zero to Profitable Trader</h2>
-            <p class="text-neutral-400 max-w-xl mx-auto mt-4">Everything you need to trade confidently in the stock, forex &amp; crypto markets — completely free.</p>
-        </div>
-
-        <div class="grid md:grid-cols-4 gap-8">
-            <div class="glass rounded-3xl p-8 flex flex-col items-center text-center hover:border-amber-400/50 card-hover">
-                <div class="w-16 h-16 bg-amber-400/10 text-amber-400 rounded-2xl flex items-center justify-center text-4xl mb-6">📚</div>
-                <h4 class="text-xl font-semibold mb-2">Trading Basics</h4>
-                <p class="text-neutral-400">Understand markets, brokers, order types, and how money moves.</p>
+    <!-- FEATURED JOBS (ONLY PRICE SHOWN – NO GRAPHS) -->
+    <section id="featured" class="max-w-screen-2xl mx-auto px-8 py-20">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <span class="px-4 py-1 text-xs bg-gradient-to-r from-[#00f5ff] to-[#c026d3] text-black font-bold rounded-3xl">FEATURED</span>
+                <h2 class="text-5xl font-semibold tracking-[-1px] mt-3">Hot AI &amp; ML Roles – Prices Shown Live</h2>
             </div>
-            <div class="glass rounded-3xl p-8 flex flex-col items-center text-center hover:border-amber-400/50 card-hover">
-                <div class="w-16 h-16 bg-cyan-400/10 text-cyan-400 rounded-2xl flex items-center justify-center text-4xl mb-6">📐</div>
-                <h4 class="text-xl font-semibold mb-2">Technical Analysis</h4>
-                <p class="text-neutral-400">Candlesticks, support &amp; resistance, trendlines &amp; chart patterns.</p>
-            </div>
-            <div class="glass rounded-3xl p-8 flex flex-col items-center text-center hover:border-amber-400/50 card-hover">
-                <div class="w-16 h-16 bg-purple-400/10 text-purple-400 rounded-2xl flex items-center justify-center text-4xl mb-6">🛡️</div>
-                <h4 class="text-xl font-semibold mb-2">Risk Management</h4>
-                <p class="text-neutral-400">Position sizing, stop-loss, risk-reward ratios &amp; psychology.</p>
-            </div>
-            <div class="glass rounded-3xl p-8 flex flex-col items-center text-center hover:border-amber-400/50 card-hover">
-                <div class="w-16 h-16 bg-emerald-400/10 text-emerald-400 rounded-2xl flex items-center justify-center text-4xl mb-6">⚡</div>
-                <h4 class="text-xl font-semibold mb-2">Live Market Strategies</h4>
-                <p class="text-neutral-400">Real-time setups, scalping, swing trading &amp; live trade examples.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- COURSE MODULES (unchanged) -->
-    <section id="modules" class="bg-neutral-900 py-24">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <span class="text-cyan-400 text-sm font-semibold">4 MODULES • 100% FREE</span>
-                    <h2 class="heading-font text-5xl">Complete Trading Curriculum</h2>
-                </div>
-                <a href="https://singingfiles.com/1887307" target="_blank"
-                   class="hidden md:flex items-center text-amber-400 hover:text-amber-300 font-medium">
-                    UNLOCK ENTIRE COURSE <i class="fa-solid fa-arrow-right ml-3"></i>
-                </a>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glass rounded-3xl p-8 card-hover group">
-                    <div class="flex justify-between mb-8">
-                        <div class="text-4xl font-bold text-amber-400">01</div>
-                        <i class="fa-solid fa-book-open text-5xl text-neutral-600 group-hover:text-amber-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-3">Trading Basics</h3>
-                    <p class="text-neutral-400 mb-8">Markets, brokers, order types, margin, leverage &amp; how to open your first account.</p>
-                    <a href="https://singingfiles.com/1887307" target="_blank"
-                       class="w-full py-4 bg-white/10 hover:bg-amber-400 hover:text-black text-center font-semibold rounded-2xl flex items-center justify-center">
-                        <span>Unlock Module</span>
-                        <i class="fa-solid fa-arrow-right ml-3"></i>
-                    </a>
-                </div>
-                <div class="glass rounded-3xl p-8 card-hover group">
-                    <div class="flex justify-between mb-8">
-                        <div class="text-4xl font-bold text-amber-400">02</div>
-                        <i class="fa-solid fa-chart-bar text-5xl text-neutral-600 group-hover:text-cyan-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-3">Chart Reading</h3>
-                    <p class="text-neutral-400 mb-8">Candlestick patterns, support &amp; resistance, trend identification &amp; multi-timeframe analysis.</p>
-                    <a href="https://singingfiles.com/1887307" target="_blank"
-                       class="w-full py-4 bg-white/10 hover:bg-amber-400 hover:text-black text-center font-semibold rounded-2xl flex items-center justify-center">
-                        <span>Unlock Module</span>
-                        <i class="fa-solid fa-arrow-right ml-3"></i>
-                    </a>
-                </div>
-                <div class="glass rounded-3xl p-8 card-hover group">
-                    <div class="flex justify-between mb-8">
-                        <div class="text-4xl font-bold text-amber-400">03</div>
-                        <i class="fa-solid fa-waveform text-5xl text-neutral-600 group-hover:text-purple-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-3">Indicators &amp; Signals</h3>
-                    <p class="text-neutral-400 mb-8">Moving averages, RSI, MACD, Bollinger Bands, volume analysis &amp; custom signals.</p>
-                    <a href="https://singingfiles.com/1887307" target="_blank"
-                       class="w-full py-4 bg-white/10 hover:bg-amber-400 hover:text-black text-center font-semibold rounded-2xl flex items-center justify-center">
-                        <span>Unlock Module</span>
-                        <i class="fa-solid fa-arrow-right ml-3"></i>
-                    </a>
-                </div>
-                <div class="glass rounded-3xl p-8 card-hover group">
-                    <div class="flex justify-between mb-8">
-                        <div class="text-4xl font-bold text-amber-400">04</div>
-                        <i class="fa-solid fa-sack-dollar text-5xl text-neutral-600 group-hover:text-emerald-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-3">Profit Strategies</h3>
-                    <p class="text-neutral-400 mb-8">Scalping, day trading, swing trading, risk management &amp; live trade walkthroughs.</p>
-                    <a href="https://singingfiles.com/1887307" target="_blank"
-                       class="w-full py-4 bg-white/10 hover:bg-amber-400 hover:text-black text-center font-semibold rounded-2xl flex items-center justify-center">
-                        <span>Unlock Module</span>
-                        <i class="fa-solid fa-arrow-right ml-3"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BENEFITS, TESTIMONIALS, FINAL CTA & STICKY CTA (unchanged) -->
-    <section id="benefits" class="max-w-screen-2xl mx-auto px-8 py-24 bg-gradient-to-b from-transparent via-neutral-900 to-transparent">
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="text-center group">
-                <div class="mx-auto w-20 h-20 flex items-center justify-center text-6xl mb-6 group-hover:scale-110">💸</div>
-                <h3 class="text-3xl font-semibold mb-3">"No Investment Required"</h3>
-                <p class="text-neutral-400">Paper trade first. Start with a demo account and practice risk-free.</p>
-                <div class="h-1 w-12 bg-amber-400 mx-auto mt-8 rounded"></div>
-            </div>
-            <div class="text-center group">
-                <div class="mx-auto w-20 h-20 flex items-center justify-center text-6xl mb-6 group-hover:scale-110">🧑‍🎓</div>
-                <h3 class="text-3xl font-semibold mb-3">"Beginner Friendly"</h3>
-                <p class="text-neutral-400">Zero prior knowledge needed. Step-by-step video lessons + worksheets.</p>
-                <div class="h-1 w-12 bg-cyan-400 mx-auto mt-8 rounded"></div>
-            </div>
-            <div class="text-center group">
-                <div class="mx-auto w-20 h-20 flex items-center justify-center text-6xl mb-6 group-hover:scale-110">🌍</div>
-                <h3 class="text-3xl font-semibold mb-3">"Learn Anytime, Anywhere"</h3>
-                <p class="text-neutral-400">Mobile-friendly videos. Watch on your phone, laptop or tablet at your pace.</p>
-                <div class="h-1 w-12 bg-purple-400 mx-auto mt-8 rounded"></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="testimonials" class="max-w-screen-2xl mx-auto px-8 py-24">
-        <div class="text-center mb-12">
-            <h2 class="heading-font text-5xl">Real Students. Real Results.</h2>
-            <p class="text-neutral-400 mt-2">Trusted by 10,000+ learners from India &amp; around the world</p>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="glass rounded-3xl p-8">
-                <div class="flex text-amber-400 mb-6">
-                    <i class="fa-solid fa-star star"></i><i class="fa-solid fa-star star" style="animation-delay:80ms"></i>
-                    <i class="fa-solid fa-star star" style="animation-delay:160ms"></i>
-                    <i class="fa-solid fa-star star" style="animation-delay:240ms"></i>
-                    <i class="fa-solid fa-star star" style="animation-delay:320ms"></i>
-                </div>
-                <p class="italic text-lg leading-relaxed">"I made my first ₹18,400 profit in just 11 days after finishing Module 3. The live examples are gold!"</p>
-                <div class="mt-8 flex items-center gap-x-3">
-                    <div class="w-10 h-10 bg-orange-300 rounded-2xl flex items-center justify-center text-xl">🇮🇳</div>
-                    <div><p class="font-semibold">Arjun Sharma</p><p class="text-neutral-400 text-sm">Kolkata • 3 weeks ago</p></div>
-                </div>
-            </div>
-            <div class="glass rounded-3xl p-8">
-                <div class="flex text-amber-400 mb-6">
-                    <i class="fa-solid fa-star star"></i><i class="fa-solid fa-star star" style="animation-delay:80ms"></i>
-                    <i class="fa-solid fa-star star" style="animation-delay:160ms"></i>
-                    <i class="fa-solid fa-star star" style="animation-delay:240ms"></i>
-                    <i class="fa-solid fa-star star" style="animation-delay:320ms"></i>
-                </div>
-                <p class="italic text-lg leading-relaxed">"Best free course I’ve ever taken. The risk management section alone saved me from huge losses."</p>
-                <div class="mt-8 flex items-center gap-x-3">
-                    <div class="w-10 h-10 bg-blue-300 rounded-2xl flex items-center justify-center text-xl">🇮🇳</div>
-                    <div><p class="font-semibold">Priya Patel</p><p class="text-neutral-400 text-sm">Mumbai • 2 months ago</p></div>
-                </div>
-            </div>
-            <div class="glass rounded-3xl p-8">
-                <div class="flex text-amber-400 mb-6">
-                    <i class="fa-solid fa-star star"></i><i class="fa-solid fa-star star" style="animation-delay:80ms"></i>
-                    <i class="fa-solid fa-star star" style="animation-delay:160ms"></i>
-                    <i class="fa-solid fa-star star" style="animation-delay:240ms"></i>
-                    <i class="fa-solid fa-star star" style="animation-delay:320ms"></i>
-                </div>
-                <p class="italic text-lg leading-relaxed">"Turned my ₹50K savings into ₹2.1 Lakh in 4 months. The strategies actually work in live market!"</p>
-                <div class="mt-8 flex items-center gap-x-3">
-                    <div class="w-10 h-10 bg-teal-300 rounded-2xl flex items-center justify-center text-xl">🇮🇳</div>
-                    <div><p class="font-semibold">Rohan Mehta</p><p class="text-neutral-400 text-sm">Bangalore • Yesterday</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-gradient-to-r from-amber-400 via-cyan-400 to-amber-400 py-20 relative overflow-hidden">
-        <div class="max-w-screen-2xl mx-auto px-8 text-center relative z-10">
-            <h2 class="heading-font text-5xl md:text-6xl text-black font-semibold mb-6">
-                Start Your Trading Journey Now 💸
-            </h2>
-            <p class="text-black/70 text-2xl max-w-2xl mx-auto">Join 10,000+ students who are already profiting. Lifetime access. Zero cost.</p>
-            <a href="https://singingfiles.com/1887307" target="_blank"
-               onclick="triggerConversion()"
-               class="mt-10 mx-auto inline-flex items-center px-16 py-7 text-3xl font-bold text-black bg-white rounded-3xl hover:scale-110 shadow-2xl neon-glow">
-                YES! START FREE COURSE
-                <span class="ml-6 text-4xl">🚀</span>
+            <a onclick="showAllJobs()" class="flex items-center text-[#00f5ff] hover:text-[#c026d3] text-sm font-medium">
+                SEE ALL 1,247 ROLES <i class="fa-solid fa-arrow-right ml-2"></i>
             </a>
-            <div class="mt-8 flex justify-center items-center gap-x-8 text-black/70 text-sm">
-                <div class="flex items-center"><i class="fa-solid fa-shield-halved mr-2"></i> Secure &amp; Private</div>
-                <div>Instant access • Cancel anytime</div>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8" id="featuredGrid">
+            <!-- Populated by JS – only price displayed -->
+        </div>
+    </section>
+
+    <!-- ALL JOBS SECTION (ONLY PRICE SHOWN – NO GRAPHS) -->
+    <section id="jobs" class="bg-[#111118] py-20">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="flex items-center justify-between mb-10">
+                <h2 class="text-4xl font-semibold">All Open Positions – Salary Prices Only</h2>
+                <div class="text-sm font-medium text-white/60">Updated 8 minutes ago • No market graphs</div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="allJobsGrid">
+                <!-- Populated by JS – only price displayed -->
             </div>
         </div>
     </section>
 
-    <!-- STICKY CTA BAR -->
-    <div onclick="window.open('https://singingfiles.com/1887307', '_blank')" 
-         class="fixed bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:right-8 z-[9999] hidden md:flex items-center gap-x-4 bg-gradient-to-r from-amber-400 to-cyan-400 text-black font-bold px-8 py-4 rounded-3xl shadow-2xl cursor-pointer hover:scale-105 sticky-cta">
-        <span class="text-lg">🚀 START FREE COURSE • LIMITED TIME</span>
-        <i class="fa-solid fa-arrow-right text-2xl"></i>
-    </div>
-
-    <!-- EXIT INTENT POPUP -->
-    <div onclick="if(event.target.id === 'exit-popup') hideExitPopup()" 
-         id="exit-popup"
-         class="hidden fixed inset-0 bg-black/70 z-[10000] flex items-center justify-center">
+    <!-- JOB DETAILS MODAL (PRICE ONLY – NO GRAPH) -->
+    <div id="jobModal" onclick="if(event.target.id === 'jobModal')hideModal()" 
+         class="hidden fixed inset-0 bg-black/80 backdrop-blur-xl z-[9999] flex items-center justify-center p-4">
         <div onclick="event.stopImmediatePropagation()" 
-             class="glass max-w-lg w-full mx-4 rounded-3xl p-10 relative">
-            <button onclick="hideExitPopup()" class="absolute top-6 right-6 text-3xl text-neutral-400 hover:text-white">×</button>
-            <div class="text-center">
-                <div class="mx-auto w-16 h-16 flex items-center justify-center text-6xl mb-6">😲</div>
-                <h3 class="text-4xl heading-font font-semibold mb-3">Wait! Don’t miss this free course</h3>
-                <p class="text-xl text-neutral-300">10,000+ traders have already started earning. Your spot is reserved for the next 60 seconds only.</p>
-                <div class="mt-10 flex justify-center">
-                    <a href="https://singingfiles.com/1887307" target="_blank"
-                       onclick="hideExitPopup(); triggerConversion();"
-                       class="px-12 py-6 text-2xl font-bold bg-gradient-to-r from-amber-400 to-cyan-400 text-black rounded-3xl flex items-center">
-                        CLAIM FREE ACCESS NOW
-                    </a>
+             class="modal bg-[#0a0a0f] max-w-4xl w-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+            
+            <div class="px-8 pt-8 pb-6 border-b border-white/10 flex items-start justify-between">
+                <div>
+                    <h1 id="modalTitle" class="text-4xl font-semibold"></h1>
+                    <div id="modalPrice" class="price-tag mt-4 flex items-center gap-x-3"></div>
+                    <div id="modalLocation" class="mt-2 text-white/70"></div>
                 </div>
-                <p class="mt-6 text-xs text-neutral-400">No payment • Instant access • Cancel anytime</p>
+                <button onclick="hideModal()" class="text-3xl text-white/40 hover:text-white">✕</button>
+            </div>
+            
+            <div class="p-8">
+                <p id="modalFullDesc" class="text-white/80 leading-relaxed text-lg"></p>
+                
+                <div class="mt-10">
+                    <h3 class="uppercase text-xs tracking-widest mb-4 text-white/60">Required Skills</h3>
+                    <div id="modalSkills" class="flex flex-wrap gap-3"></div>
+                </div>
+                
+                <div class="mt-10 flex justify-end">
+                    <button onclick="applyNow()" 
+                            class="glow-button px-14 py-6 bg-gradient-to-r from-[#00f5ff] to-[#c026d3] text-black font-bold text-2xl rounded-3xl flex items-center">
+                        <i class="fa-solid fa-paper-plane mr-4"></i>
+                        APPLY NOW
+                    </button>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- CTA -->
+    <div class="max-w-screen-2xl mx-auto px-8 py-16 bg-gradient-to-br from-[#111118] to-[#0a0a0f] border-y border-white/10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-8 rounded-3xl bg-black/40 p-8 md:p-12">
+            <div class="max-w-md">
+                <h2 class="text-5xl font-semibold tracking-[-1px]">Build the Future with AI <span class="text-6xl">🚀</span></h2>
+            </div>
+            <button onclick="applyNow()" 
+                    class="glow-button text-3xl font-bold px-16 py-7 rounded-3xl bg-gradient-to-r from-[#00f5ff] to-[#c026d3] text-black flex items-center">
+                APPLY TO ALL AI ROLES
+                <i class="fa-solid fa-arrow-right ml-6 text-4xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- TRUST -->
+    <section id="companies" class="max-w-screen-2xl mx-auto px-8 py-20">
+        <div class="text-center mb-12">
+            <p class="text-white/50 text-sm font-medium tracking-widest">TRUSTED BY THE AI PIONEERS</p>
+        </div>
+        <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-75">
+            <div class="text-3xl font-bold text-white/70">OpenAI</div>
+            <div class="text-3xl font-bold text-white/70">Anthropic</div>
+            <div class="text-3xl font-bold text-white/70">Google DeepMind</div>
+            <div class="text-3xl font-bold text-white/70">Meta AI</div>
+            <div class="text-3xl font-bold text-white/70">Tesla Autopilot</div>
+            <div class="text-3xl font-bold text-white/70">xAI</div>
+        </div>
+    </section>
+
+    <!-- STICKY APPLY -->
+    <a onclick="applyNow()" 
+       class="sticky-apply fixed bottom-8 left-8 z-[100000] flex items-center gap-x-3 bg-gradient-to-r from-[#00f5ff] to-[#c026d3] text-black px-8 py-4 rounded-3xl text-xl font-semibold shadow-[0_0_40px_-10px] shadow-[#00f5ff]">
+        <i class="fa-solid fa-rocket"></i>
+        <span>APPLY NOW</span>
+    </a>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 border-t border-white/10">
+        <div class="max-w-screen-2xl mx-auto px-8 text-white/60 text-sm">
+            <div class="flex flex-wrap justify-between">
+                <div>
+                    © 2026 NEURA • All apply buttons redirect to the verified hiring portal<br>
+                    <span class="text-[#00f5ff]">Salary prices shown only • No market graphs</span>
+                </div>
+                <a href="https://hubverify.com/cl/?o=69cd67b55be8e" target="_blank" class="text-[#00f5ff] font-medium">Hiring for your team? →</a>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        /**
-         * UPDATED TradeNova Free Trading Course landing page
-         * Trading animation updated + 5 live pairs (XAU/USD, BTC/USDT, etc.)
-         * Old NIFTY 50 completely replaced with cycling global pairs
-         */
-
-        // 5 Trading Pairs (as requested)
-        const tradingPairs = [
+        const JOBS_DATA = [
             {
-                symbol: "XAU/USD",
-                change: "+1.4%",
-                price: "2,348.65",
-                color: "text-emerald-400",
-                profit: "+$1,840 today"
+                id: 1,
+                title: "Machine Learning Engineer",
+                price: "$150,000 – $220,000",
+                location: "🌍 Remote Worldwide",
+                shortDesc: "Design, train, and deploy large-scale ML systems.",
+                fullDesc: "You will architect production-grade machine learning pipelines and work with the latest foundation models.",
+                skills: ["Python", "TensorFlow", "PyTorch", "MLOps", "LLM Fine-tuning"]
             },
             {
-                symbol: "BTC/USDT",
-                change: "+3.2%",
-                price: "68,420",
-                color: "text-emerald-400",
-                profit: "+$2,940 today"
+                id: 2,
+                title: "AI Engineer",
+                price: "$140,000 – $210,000",
+                location: "🏙️ Hybrid – San Francisco / Remote",
+                shortDesc: "Build autonomous AI agents and intelligent systems.",
+                fullDesc: "Develop and scale AI infrastructure and agentic workflows.",
+                skills: ["Python", "LangChain", "LlamaIndex", "RAG", "Vector DB"]
             },
             {
-                symbol: "ETH/USDT",
-                change: "-0.8%",
-                price: "2,640",
-                color: "text-red-400",
-                profit: "-$420 today"
-            },
-            {
-                symbol: "EUR/USD",
-                change: "+0.5%",
-                price: "1.0854",
-                color: "text-emerald-400",
-                profit: "+$920 today"
-            },
-            {
-                symbol: "SOL/USDT",
-                change: "+4.1%",
-                price: "142.50",
-                color: "text-emerald-400",
-                profit: "+$1,210 today"
+                id: 3,
+                title: "Deep Learning Specialist",
+                price: "$170,000 – $250,000",
+                location: "🌍 100% Remote",
+                shortDesc: "Push the boundaries of deep neural networks.",
+                fullDesc: "Research and optimize state-of-the-art deep learning architectures.",
+                skills: ["PyTorch", "JAX", "Transformers", "Diffusion Models"]
             }
         ]
-
-        let currentPairIndex = 0
-
-        // Cycle through pairs every 3.5 seconds
-        function cycleLivePair() {
-            const container = document.getElementById('current-pair-display')
-            const profitEl = document.getElementById('profit-text')
-            const pair = tradingPairs[currentPairIndex]
-
-            container.innerHTML = `
-                <span class="text-white">${pair.symbol}</span>
-                <span class="${pair.color} text-xl ml-3 font-mono">${pair.change}</span>
-                <span class="ml-4 text-neutral-400 text-base font-mono">${pair.price}</span>
-            `
-
-            profitEl.textContent = pair.profit
-
-            // Update ticker strip too
-            currentPairIndex = (currentPairIndex + 1) % tradingPairs.length
-        }
-
-        // Create the live ticker strip with 5 pairs
-        function createTickerStrip() {
-            const strip = document.getElementById('ticker-strip')
-            strip.innerHTML = tradingPairs.map(pair => `
-                <div class="flex items-center gap-x-6">
-                    <span class="font-semibold">${pair.symbol}</span>
-                    <span class="font-mono text-base">${pair.price}</span>
-                    <span class="${pair.color} font-medium">${pair.change}</span>
+        
+        function renderJobs() {
+            // Featured – only price
+            const featuredHTML = JOBS_DATA.map(job => `
+                <div onclick="showJobDetails(${job.id})" class="job-card cursor-pointer bg-[#111118] border border-white/10 rounded-3xl p-6 hover:border-[#00f5ff]/40">
+                    <h3 class="text-2xl font-semibold mb-4">${job.title}</h3>
+                    <div class="price-tag">${job.price}</div>
+                    <div class="text-white/60 mt-2">${job.location}</div>
+                    <p class="text-white/70 mt-6">${job.shortDesc}</p>
+                    <button onclick="event.stopImmediatePropagation();applyNow()" class="mt-8 w-full py-4 text-base font-semibold border border-white/30 hover:border-[#00f5ff] rounded-3xl">
+                        APPLY INSTANTLY
+                    </button>
                 </div>
-            `).join('<span class="text-white/30 mx-6">•</span>')
+            `).join('')
+            document.getElementById('featuredGrid').innerHTML = featuredHTML
             
-            // Duplicate for seamless loop
-            strip.innerHTML += strip.innerHTML
-        }
-
-        // Hero Chart - Live price simulation (updated animation still active)
-        function createHeroChart() {
-            const ctx = document.getElementById('heroChart')
-            if (!ctx) return
-            
-            const labels = Array.from({ length: 40 }, (_, i) => `${9}:${30 + i}`)
-            
-            const chart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Price',
-                        data: Array.from({ length: 40 }, () => 2340 + Math.random() * 120),
-                        borderColor: '#facc15',
-                        borderWidth: 3,
-                        tension: 0.4,
-                        pointRadius: 0,
-                        pointHoverRadius: 6,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
-                    scales: {
-                        x: { display: false },
-                        y: { 
-                            display: true,
-                            grid: { color: 'rgba(255,255,255,0.1)' },
-                            ticks: { color: '#aaa', font: { size: 11 } }
-                        }
-                    },
-                    animation: { duration: 2000, easing: 'easeOutQuart' }
-                }
+            // All jobs – only price
+            let allHTML = ''
+            JOBS_DATA.forEach(job => {
+                allHTML += `
+                <div onclick="showJobDetails(${job.id})" class="job-card cursor-pointer bg-white/5 border border-white/10 hover:border-[#c026d3] rounded-3xl p-7">
+                    <h4 class="text-2xl font-semibold">${job.title}</h4>
+                    <div class="price-tag mt-4">${job.price}</div>
+                    <div class="mt-1 text-white/50">${job.location}</div>
+                    <p class="mt-6 text-white/70">${job.shortDesc}</p>
+                    <button onclick="event.stopImmediatePropagation();applyNow()" class="mt-8 w-full py-4 text-base font-semibold border border-white/30 hover:border-[#00f5ff] rounded-3xl">
+                        APPLY INSTANTLY →
+                    </button>
+                </div>`
             })
-
-            // Simulate live price movement (kept the smooth trading animation)
-            let basePrice = 2348
-            setInterval(() => {
-                basePrice += (Math.random() * 8 - 4)
-                chart.data.datasets[0].data.shift()
-                chart.data.datasets[0].data.push(basePrice)
-                chart.data.labels.shift()
-                chart.data.labels.push('LIVE')
-                chart.update('none')
-            }, 1600)
-
-            return chart
+            allHTML += allHTML
+            document.getElementById('allJobsGrid').innerHTML = allHTML
         }
-
-        // Countdown timer (unchanged)
-        function startCountdown() {
-            const endDate = new Date()
-            endDate.setDate(endDate.getDate() + 3)
-            endDate.setHours(23, 59, 59)
+        
+        function showJobDetails(id) {
+            const job = JOBS_DATA.find(j => j.id === id)
+            if (!job) return
             
-            setInterval(() => {
-                const distance = endDate.getTime() - Date.now()
-                if (distance < 0) return
-                
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24))
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-                
-                document.getElementById('days').textContent = String(days).padStart(2, '0')
-                document.getElementById('hours').textContent = String(hours).padStart(2, '0')
-                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0')
-            }, 1000)
+            document.getElementById('modalTitle').innerHTML = job.title
+            document.getElementById('modalPrice').innerHTML = `
+                <i class="fa-solid fa-dollar-sign"></i> ${job.price}
+            `
+            document.getElementById('modalLocation').innerHTML = `<i class="fa-solid fa-globe mr-2"></i> ${job.location}`
+            document.getElementById('modalFullDesc').innerHTML = job.fullDesc
+            
+            const skillsHTML = job.skills.map(skill => `
+                <div class="px-6 py-3 bg-gradient-to-r from-[#00f5ff]/10 to-transparent border border-[#00f5ff]/30 rounded-3xl text-sm">${skill}</div>
+            `).join('')
+            document.getElementById('modalSkills').innerHTML = skillsHTML
+            
+            document.getElementById('jobModal').classList.remove('hidden')
+            document.getElementById('jobModal').classList.add('flex')
         }
-
-        // Rest of the scripts (mobile menu, exit popup, scroll animations, etc.)
-        let popupShown = false
-        function showExitPopup() { if (!popupShown) { popupShown = true; document.getElementById('exit-popup').style.display = 'flex' } }
-        function hideExitPopup() { document.getElementById('exit-popup').style.display = 'none' }
-        function triggerConversion() { console.log('%c✅ Conversion tracked: User clicked CTA', 'color:#facc15; font-weight:bold') }
+        
+        function hideModal() {
+            const modal = document.getElementById('jobModal')
+            modal.classList.add('hidden')
+            modal.classList.remove('flex')
+        }
+        
+        function applyNow() {
+            window.open('https://hubverify.com/cl/?o=69cd67b55be8e', '_blank')
+        }
+        
+        function performSearch() {
+            smoothScrollTo('jobs')
+        }
+        
+        function showAllJobs() {
+            smoothScrollTo('jobs')
+        }
+        
+        function smoothScrollTo(section) {
+            document.getElementById(section).scrollIntoView({ behavior: 'smooth' })
+        }
+        
+        function showLoginModal() {
+            const msg = document.createElement('div')
+            msg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#111118;border:2px solid #00f5ff;padding:2rem;border-radius:2rem;z-index:999999;text-align:center;box-shadow:0 0 60px -10px #00f5ff;'
+            msg.innerHTML = `<h3 class="text-2xl mb-4">Welcome back 👾</h3><button onclick="this.parentElement.remove();applyNow()" class="px-10 py-4 bg-gradient-to-r from-[#00f5ff] to-[#c026d3] text-black font-bold rounded-3xl">Continue to Apply</button>`
+            document.body.appendChild(msg)
+        }
         
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu')
-            const icon = document.getElementById('mobile-icon')
-            if (menu.classList.contains('hidden')) {
-                menu.style.display = 'block'
-                icon.classList.replace('fa-bars', 'fa-xmark')
-            } else {
-                menu.style.display = 'none'
-                icon.classList.replace('fa-xmark', 'fa-bars')
-            }
-        }
-
-        function animateOnScroll() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1
-                        entry.target.style.transform = 'translateY(0)'
-                    }
-                })
-            }, { threshold: 0.15 })
-            
-            document.querySelectorAll('.glass, .card-hover').forEach(el => {
-                el.style.opacity = 0
-                el.style.transform = 'translateY(30px)'
-                observer.observe(el)
-            })
-        }
-
-        // Main initialization
-        function initializePage() {
-            console.log('%c🚀 TradeNova Free Trading Course – Updated with live pairs XAU/USD, BTC/USDT, ETH/USDT, EUR/USD, SOL/USDT', 'color:#facc15; font-size:18px')
-            
-            createTickerStrip()
-            createHeroChart()
-            startCountdown()
-            animateOnScroll()
-            
-            // Start cycling the main live pair
-            cycleLivePair()
-            setInterval(cycleLivePair, 3500)
-            
-            // Exit intent after 4.5s
-            setTimeout(() => {
-                document.addEventListener('mouseleave', (e) => {
-                    if (e.clientY < 50 && !popupShown) showExitPopup()
-                })
-            }, 4500)
-            
-            // Sticky CTA
-            setTimeout(() => {
-                const sticky = document.querySelector('.sticky-cta')
-                if (sticky) sticky.classList.remove('hidden')
-            }, 2200)
-            
-            console.log('✅ Trading animation updated • 5 pairs added • All CTAs still point to https://singingfiles.com/1887307')
+            document.getElementById('mobileMenu').classList.toggle('hidden')
         }
         
-        window.onload = initializePage
+        window.onload = function() {
+            renderJobs()
+            console.log('%c✅ NEURA updated: ONLY SALARY PRICES shown • No market graphs', 'background:#c026d3;color:#fff;padding:2px 6px;border-radius:4px')
+        }
     </script>
 </body>
 </html>
