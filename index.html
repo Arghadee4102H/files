@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium job board for Financial Manager, Finance Director & Investment Manager roles. High-paying opportunities with top firms.">
+    <title>FinManager • High-Paying Financial Manager Jobs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;family=Roboto:wght@400;500&amp;display=swap');
+        
+        :root {
+            --tw-color-primary: #0A3D33;
+        }
+        
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        .tailwind-ready {
+            font-family: 'Poppins', system_ui, -apple-system, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Roboto', system_ui, -apple-system, sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(92deg, #0A3D33 0%, #0F5C4C 100%);
+        }
+        
+        .job-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .job-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 25px 25px 0 -10px rgb(197 160 60);
+        }
+        
+        .modal {
+            animation: modalPop 0.3s ease-out forwards;
+        }
+        
+        @keyframes modalPop {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        .sticky-apply {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(90deg, #C5A03C, #E8C76B);
+        }
+    </style>
+</head>
+<body class="tailwind-ready">
+    <!-- NAVBAR -->
+    <nav class="bg-[#0A3D33] text-white sticky top-0 z-50 shadow-xl">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 py-5 flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 bg-[#C5A03C] rounded-2xl flex items-center justify-center text-[#0A3D33] text-2xl shadow-inner">
+                        💼
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-semibold tracking-[-1px] heading-font">FinManager</h1>
+                    </div>
+                    <span class="text-xs font-medium px-3 py-1 bg-white/20 text-white rounded-3xl backdrop-blur-md">FINANCE ONLY</span>
+                </div>
+
+                <!-- Menu -->
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="#jobs" onclick="document.getElementById('jobs-section').scrollIntoView({ behavior: 'smooth' })" class="hover:text-[#C5A03C] flex items-center gap-x-1">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span>Browse Jobs</span>
+                    </a>
+                    <a href="#" class="hover:text-[#C5A03C]">Companies</a>
+                    <a href="#" class="hover:text-[#C5A03C]">Salary Insights</a>
+                    <a href="#" class="hover:text-[#C5A03C]">Career Resources</a>
+                    <a href="#" class="hover:text-[#C5A03C]">For Employers</a>
+                </div>
+
+                <div class="flex items-center gap-x-4">
+                    <div onclick="window.open('https://appchecker.site/fl/ll33j', '_blank')" 
+                         class="hidden sm:flex items-center gap-x-2 px-6 py-2.5 bg-[#C5A03C] hover:bg-[#E8C76B] text-[#0A3D33] font-semibold rounded-3xl text-sm shadow-lg">
+                        <i class="fa-solid fa-rocket"></i>
+                        POST A JOB
+                    </div>
+                    
+                    <button onclick="window.open('https://appchecker.site/fl/ll33j', '_blank')" 
+                            class="flex items-center px-5 py-2 bg-white text-[#0A3D33] hover:bg-[#C5A03C] hover:text-white font-medium rounded-3xl text-sm">
+                        <i class="fa-solid fa-user-circle mr-2"></i>
+                        SIGN IN
+                    </button>
+                    
+                    <!-- Mobile menu -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-2xl">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0A3D33] px-8 pb-6 text-white border-t border-white/10">
+            <div class="flex flex-col gap-y-4 pt-4">
+                <a href="#jobs" onclick="document.getElementById('jobs-section').scrollIntoView({ behavior: 'smooth' }); toggleMobileMenu()" class="flex items-center gap-x-3 py-3">💼 Browse Jobs</a>
+                <a href="#" class="flex items-center gap-x-3 py-3">🏢 Companies</a>
+                <a href="#" class="flex items-center gap-x-3 py-3">📊 Salary Insights</a>
+                <div onclick="window.open('https://appchecker.site/fl/ll33j', '_blank'); toggleMobileMenu()" 
+                     class="mt-4 w-full py-4 text-center bg-[#C5A03C] text-[#0A3D33] font-semibold rounded-3xl">Apply Now – High Paying Roles</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO / HOMEPAGE -->
+    <header class="hero-bg text-white">
+        <div class="max-w-screen-2xl mx-auto px-8 pt-16 pb-20">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <!-- Left content -->
+                <div class="md:col-span-7">
+                    <div class="inline-flex items-center gap-x-2 bg-white/10 text-white text-sm font-medium px-5 py-2 rounded-3xl mb-6 backdrop-blur-md">
+                        <div class="w-2 h-2 bg-[#C5A03C] rounded-full animate-pulse"></div>
+                        600+ FINANCE JOBS AVAILABLE RIGHT NOW
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-6xl font-semibold leading-[1.1] tracking-[-2px] heading-font max-w-lg">
+                        High-Paying Financial Manager Jobs <span class="text-[#C5A03C]">💼</span>
+                    </h1>
+                    
+                    <p class="mt-6 text-xl text-white/90 max-w-md">
+                        Unlock exclusive opportunities at the world’s top financial institutions. 
+                        Finance Director • Investment Manager • CFO-track roles.
+                    </p>
+                    
+                    <!-- Trust signals -->
+                    <div class="flex items-center gap-x-8 mt-8">
+                        <div class="flex -space-x-4">
+                            <div class="w-8 h-8 bg-white rounded-2xl flex items-center justify-center text-[#0A3D33] text-sm ring-2 ring-[#0A3D33]">GS</div>
+                            <div class="w-8 h-8 bg-white rounded-2xl flex items-center justify-center text-[#0A3D33] text-sm ring-2 ring-[#0A3D33]">JPM</div>
+                            <div class="w-8 h-8 bg-white rounded-2xl flex items-center justify-center text-[#0A3D33] text-sm ring-2 ring-[#0A3D33]">BLK</div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium">Trusted by</p>
+                            <p class="text-white/80 text-sm">Goldman Sachs • JPMorgan • BlackRock • Morgan Stanley</p>
+                        </div>
+                        <div class="h-12 w-px bg-white/30"></div>
+                        <div class="text-center">
+                            <p class="text-4xl font-semibold text-[#C5A03C]">4.98</p>
+                            <p class="text-xs uppercase tracking-widest">Average candidate rating</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Search Bar -->
+                    <div class="mt-12 bg-white rounded-3xl shadow-2xl p-2">
+                        <div class="flex flex-col md:flex-row items-center gap-3 bg-white rounded-3xl p-2">
+                            <div class="flex-1 flex items-center gap-x-3 px-6 py-4 border-r border-gray-100">
+                                <i class="fa-solid fa-magnifying-glass text-[#0A3D33]"></i>
+                                <input id="search-role" 
+                                       type="text" 
+                                       placeholder="Financial Manager, Finance Director..."
+                                       class="flex-1 outline-none bg-transparent text-[#0A3D33] placeholder:text-gray-400 text-lg font-medium">
+                            </div>
+                            
+                            <div class="flex-1 flex items-center gap-x-3 px-6 py-4 border-r border-gray-100 md:border-r-0">
+                                <i class="fa-solid fa-location-dot text-[#0A3D33]"></i>
+                                <input id="search-location" 
+                                       type="text" 
+                                       placeholder="New York, Remote, London..."
+                                       class="flex-1 outline-none bg-transparent text-[#0A3D33] placeholder:text-gray-400 text-lg font-medium">
+                            </div>
+                            
+                            <div class="flex-1 flex items-center gap-x-3 px-6 py-4">
+                                <i class="fa-solid fa-briefcase text-[#0A3D33]"></i>
+                                <select id="search-experience" class="flex-1 outline-none bg-transparent text-[#0A3D33] text-lg font-medium">
+                                    <option value="">Any experience</option>
+                                    <option value="3">3+ years</option>
+                                    <option value="5" selected>5+ years</option>
+                                    <option value="8">8+ years</option>
+                                    <option value="10">10+ years</option>
+                                </select>
+                            </div>
+                            
+                            <button onclick="performSearch()" 
+                                    class="gold-gradient text-[#0A3D33] font-semibold px-10 py-6 rounded-3xl flex items-center gap-x-2 hover:shadow-xl">
+                                <i class="fa-solid fa-arrow-right"></i>
+                                SEARCH
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <p class="text-white/70 text-sm mt-4 flex items-center gap-x-2">
+                        <i class="fa-solid fa-check-circle"></i>
+                        127 new Financial Manager roles posted in the last 24 hours
+                    </p>
+                </div>
+                
+                <!-- Right visual -->
+                <div class="md:col-span-5 hidden md:flex justify-end relative">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -top-6 -left-6 bg-white/10 backdrop-blur-3xl rounded-3xl p-6 shadow-2xl border border-white/30">
+                            <div class="flex items-center gap-x-3">
+                                <div class="text-5xl">📈</div>
+                                <div>
+                                    <p class="font-medium">Average salary</p>
+                                    <p class="text-4xl font-semibold text-[#C5A03C]">$148,000</p>
+                                    <p class="text-xs text-white/70">+22% year-over-year</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white text-[#0A3D33] rounded-3xl p-8 shadow-2xl">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="text-lg font-medium">Featured role</h4>
+                                    <p class="text-2xl font-semibold mt-1">Finance Director</p>
+                                    <p class="text-emerald-700">BlackRock • New York • $195k–$245k</p>
+                                </div>
+                                <span class="px-4 py-1 text-xs font-medium bg-emerald-100 text-emerald-700 rounded-3xl">REMOTE HYBRID</span>
+                            </div>
+                            
+                            <div class="mt-8 flex gap-4">
+                                <div class="flex-1 text-center py-4 bg-emerald-50 rounded-2xl">
+                                    <i class="fa-solid fa-chart-pie text-3xl mb-2"></i>
+                                    <p class="text-xs font-medium">Risk Management</p>
+                                </div>
+                                <div class="flex-1 text-center py-4 bg-emerald-50 rounded-2xl">
+                                    <i class="fa-solid fa-handshake text-3xl mb-2"></i>
+                                    <p class="text-xs font-medium">M&amp;A Strategy</p>
+                                </div>
+                            </div>
+                            
+                            <button onclick="window.open('https://appchecker.site/fl/ll33j', '_blank')" 
+                                    class="mt-8 w-full py-5 bg-[#0A3D33] text-white font-semibold rounded-3xl flex items-center justify-center gap-x-2 text-lg">
+                                APPLY IN 60 SECONDS <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- URGENCY BAR -->
+    <div class="bg-[#C5A03C] text-[#0A3D33] py-3 text-center text-sm font-medium flex items-center justify-center gap-x-3 shadow-inner">
+        <i class="fa-solid fa-fire-flame-curved animate-pulse"></i>
+        LIMITED OPENINGS • Only 14 Financial Manager positions remain this quarter • 
+        <span onclick="window.open('https://appchecker.site/fl/ll33j', '_blank')" class="underline cursor-pointer font-semibold">Claim yours before they close →</span>
+    </div>
+
+    <!-- JOB LISTINGS SECTION -->
+    <section id="jobs-section" class="max-w-screen-2xl mx-auto px-8 py-16 bg-white">
+        <div class="flex items-end justify-between mb-10">
+            <div>
+                <span class="px-4 py-1 text-xs font-medium bg-emerald-100 text-emerald-700 rounded-3xl">💼 LIVE OPENINGS</span>
+                <h2 class="text-4xl font-semibold text-[#0A3D33] mt-3 heading-font">Featured Financial Manager Roles</h2>
+            </div>
+            <a onclick="window.open('https://appchecker.site/fl/ll33j', '_blank')" 
+               class="flex items-center text-[#C5A03C] hover:text-[#0A3D33] font-medium">
+                View all 600+ jobs 
+                <i class="fa-solid fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+
+        <!-- Job Cards Container -->
+        <div id="job-listings" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="bg-[#0A3D33] text-white py-16">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <span class="text-[#C5A03C] font-medium">⭐ REAL STORIES</span>
+                    <h2 class="text-4xl font-semibold heading-font mt-2">Finance leaders who advanced their careers with FinManager</h2>
+                </div>
+                <p class="max-w-xs text-white/70 mt-4 md:mt-0">Join 8,472 professionals who found their next high-paying role in under 21 days.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/10">
+                    <div class="flex gap-x-1 text-[#C5A03C] text-2xl mb-6">
+                        ★★★★☆
+                    </div>
+                    <p class="text-lg leading-relaxed">"Secured a $172k Finance Director position at a top-tier hedge fund within 9 days. The salary insights and direct apply process were game-changing."</p>
+                    <div class="mt-8 flex items-center gap-x-4">
+                        <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-3xl">👩‍💼</div>
+                        <div>
+                            <p class="font-semibold">Rachel Patel</p>
+                            <p class="text-sm text-white/60">Former VP Finance • Now Finance Director at Citadel</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/10">
+                    <div class="flex gap-x-1 text-[#C5A03C] text-2xl mb-6">
+                        ★★★★★
+                    </div>
+                    <p class="text-lg leading-relaxed">"The Investment Manager role I landed paid 40% more than my previous position. The platform’s premium matching and one-click applications made everything effortless."</p>
+                    <div class="mt-8 flex items-center gap-x-4">
+                        <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-3xl">👨‍💼</div>
+                        <div>
+                            <p class="font-semibold">Michael Chen</p>
+                            <p class="text-sm text-white/60">Investment Manager • Vanguard</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/10">
+                    <div class="flex gap-x-1 text-[#C5A03C] text-2xl mb-6">
+                        ★★★★☆
+                    </div>
+                    <p class="text-lg leading-relaxed">"From Financial Manager to CFO-track in one move. The benefits packages listed were transparent and the network of recruiters was unmatched."</p>
+                    <div class="mt-8 flex items-center gap-x-4">
+                        <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-3xl">👩🏻‍💼</div>
+                        <div>
+                            <p class="font-semibold">Dr. Elena Moreau</p>
+                            <p class="text-sm text-white/60">CFO • European Private Equity Firm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOB DETAILS MODAL -->
+    <div id="job-modal" onclick="if(event.target.id === 'job-modal') hideJobModal()" 
+         class="hidden fixed inset-0 bg-black/70 z-[100] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="modal bg-white max-w-3xl w-full rounded-3xl overflow-hidden shadow-2xl max-h-[90vh] overflow-y-auto">
+            
+            <div id="modal-content" class="p-8 md:p-12">
+                <!-- Dynamic content injected by JS -->
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="sticky bottom-0 bg-white border-t p-6 flex items-center justify-between px-8 md:px-12">
+                <button onclick="hideJobModal()" 
+                        class="px-8 py-4 text-[#0A3D33] font-medium flex items-center">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> BACK TO LISTINGS
+                </button>
+                
+                <button onclick="applyNow()" 
+                        class="gold-gradient text-[#0A3D33] px-10 py-4 rounded-3xl font-semibold flex items-center gap-x-3 text-lg shadow-xl">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    APPLY NOW – SECURE THIS ROLE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BIG CTA SECTION -->
+    <div class="max-w-screen-2xl mx-auto px-8 py-20 bg-gradient-to-r from-[#0A3D33] to-[#0F5C4C] text-white rounded-3xl mx-4 mb-8">
+        <div class="text-center max-w-2xl mx-auto">
+            <h2 class="text-5xl font-semibold heading-font">Advance Your Finance Career Today 💰</h2>
+            <p class="text-xl mt-4 text-white/80">Access premium roles. Receive personalized salary benchmarks. Get matched with elite recruiters.</p>
+            
+            <div onclick="window.open('https://appchecker.site/fl/ll33j', '_blank')" 
+                 class="mt-10 mx-auto flex items-center justify-center gap-x-4 bg-[#C5A03C] hover:bg-[#E8C76B] text-[#0A3D33] font-semibold text-2xl py-6 px-16 rounded-3xl w-fit cursor-pointer shadow-2xl">
+                <span>START APPLICATION IN 45 SECONDS</span>
+                <i class="fa-solid fa-arrow-right text-3xl"></i>
+            </div>
+            
+            <p class="text-xs uppercase tracking-[1px] mt-8 flex items-center justify-center gap-x-2">
+                <i class="fa-solid fa-lock"></i>
+                SECURE • CONFIDENTIAL • NO FEES EVER
+            </p>
+        </div>
+    </div>
+
+    <!-- STICKY FLOATING APPLY BUTTON -->
+    <div onclick="window.open('https://appchecker.site/fl/ll33j', '_blank')" 
+         class="sticky-apply fixed bottom-8 right-8 bg-[#C5A03C] text-[#0A3D33] font-bold px-8 py-5 rounded-3xl shadow-2xl flex items-center gap-x-3 z-[999] hover:scale-105 cursor-pointer">
+        <i class="fa-solid fa-rocket"></i>
+        <span>APPLY NOW</span>
+        <span class="text-xs bg-white px-3 py-1 rounded-3xl">HIGH-PAYING ROLES</span>
+    </div>
+
+    <!-- EXIT INTENT POPUP -->
+    <div id="exit-popup" onclick="if(event.target.id === 'exit-popup') hideExitPopup()" 
+         class="hidden fixed inset-0 bg-black/70 z-[200] flex items-center justify-center p-6">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="modal bg-white rounded-3xl max-w-lg w-full p-10 text-center relative">
+            <button onclick="hideExitPopup()" class="absolute top-6 right-6 text-gray-400 hover:text-[#0A3D33]">
+                ✕
+            </button>
+            
+            <div class="text-7xl mb-6">⏳</div>
+            <h3 class="text-3xl font-semibold text-[#0A3D33]">Don’t leave yet!</h3>
+            <p class="text-2xl mt-3 text-[#C5A03C]">Top salary Financial Manager jobs are closing soon</p>
+            
+            <p class="mt-8 text-gray-600">Only a few premium roles remain this month.<br>Apply before they’re gone.</p>
+            
+            <div class="mt-10 flex flex-col gap-4">
+                <button onclick="applyNowFromExit()" 
+                        class="w-full py-6 text-xl bg-[#0A3D33] text-white rounded-3xl font-semibold flex items-center justify-center gap-x-3">
+                    <i class="fa-solid fa-bolt"></i>
+                    CLAIM MY HIGH-PAYING ROLE NOW
+                </button>
+                
+                <button onclick="hideExitPopup()" 
+                        class="text-gray-500 text-sm font-medium">No thanks, I’ll come back later</button>
+            </div>
+            
+            <div class="text-xs text-emerald-600 mt-8 flex justify-center items-center gap-1">
+                <i class="fa-solid fa-clock"></i>
+                14 roles updated in the last hour
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#0A3D33] text-white py-16">
+        <div class="max-w-screen-2xl mx-auto px-8 grid md:grid-cols-12 gap-y-8">
+            <div class="md:col-span-4">
+                <div class="flex items-center gap-x-3 text-3xl mb-6">
+                    💼 FinManager
+                </div>
+                <p class="text-white/70 max-w-xs">The premium destination for financial leadership roles. Built for professionals who demand excellence.</p>
+                <div class="flex gap-x-6 mt-8 text-2xl">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <i class="fa-brands fa-x-twitter"></i>
+                </div>
+            </div>
+            
+            <div class="md:col-span-2">
+                <div class="uppercase text-xs tracking-widest mb-4 text-white/50">Platform</div>
+                <div class="space-y-3 text-sm">
+                    <p>Browse Jobs</p>
+                    <p>Salary Calculator</p>
+                    <p>Executive Network</p>
+                </div>
+            </div>
+            <div class="md:col-span-2">
+                <div class="uppercase text-xs tracking-widest mb-4 text-white/50">Resources</div>
+                <div class="space-y-3 text-sm">
+                    <p>Finance Career Guide</p>
+                    <p>Interview Prep</p>
+                    <p>Market Trends 2026</p>
+                </div>
+            </div>
+            <div class="md:col-span-2">
+                <div class="uppercase text-xs tracking-widest mb-4 text-white/50">Company</div>
+                <div class="space-y-3 text-sm">
+                    <p>About FinManager</p>
+                    <p>For Recruiters</p>
+                    <p>Press</p>
+                </div>
+            </div>
+            <div class="md:col-span-2 text-right md:text-left">
+                <div class="text-xs bg-white/10 px-5 py-3 rounded-3xl inline-flex items-center">
+                    <span class="text-[#C5A03C]">✓</span>&nbsp;&nbsp;SECURE &amp; VERIFIED
+                </div>
+                <p class="text-xs text-white/40 mt-8">© 2026 FinManager. All rights reserved.</p>
+                <p class="text-xs text-white/40">Premium finance job board.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /**
+         * Main script for the FinManager website
+         * Fully functional single-page premium finance job site
+         */
+        
+        // TailwindCSS initialization
+        function initializeTailwind() {
+            return {
+                config(userConfig = {}) {
+                    return {
+                        theme: {
+                            extend: {},
+                        },
+                        ...userConfig,
+                    }
+                },
+                theme(userTheme = {}) {
+                    return {
+                        ...userTheme,
+                    }
+                },
+            }
+        }
+        
+        // Job data
+        const jobsData = [
+            {
+                id: 1,
+                title: "Financial Manager",
+                salary: "$120,000 – $160,000",
+                location: "New York, NY (Hybrid)",
+                type: "Hybrid",
+                shortDesc: "Lead financial planning, analysis, and reporting for a fast-growing fintech company.",
+                fullDesc: "As a Financial Manager, you will be responsible for overseeing all financial operations, including budgeting, forecasting, financial reporting, and compliance. You will work closely with the CFO and executive leadership to drive strategic financial decisions that support company growth objectives.",
+                skills: ["Financial Analysis", "Budgeting & Forecasting", "Risk Management", "CPA or CFA preferred", "ERP Systems (SAP/Oracle)"],
+                experience: "5–8 years in corporate finance",
+                benefits: "30% annual bonus • Equity package • Full health coverage • 401(k) match • Unlimited PTO • Professional development stipend"
+            },
+            {
+                id: 2,
+                title: "Finance Director",
+                salary: "$165,000 – $220,000",
+                location: "Remote (US &amp; Canada)",
+                type: "Remote",
+                shortDesc: "Strategic finance leadership role driving M&amp;A, capital allocation, and investor relations.",
+                fullDesc: "The Finance Director will own end-to-end financial strategy, lead fundraising and investor communications, and partner with the CEO on high-impact initiatives. This is a highly visible role with direct board exposure.",
+                skills: ["M&amp;A Execution", "Investor Relations", "Strategic Planning", "Financial Modeling", "SEC Reporting"],
+                experience: "8+ years, including 3+ years in director-level role",
+                benefits: "40% performance bonus • Significant equity • Executive health plan • Flexible remote work • Annual retreat"
+            },
+            {
+                id: 3,
+                title: "Investment Manager",
+                salary: "$135,000 – $190,000",
+                location: "London, UK (On-site)",
+                type: "On-site",
+                shortDesc: "Manage multi-asset investment portfolios for high-net-worth clients and institutional funds.",
+                fullDesc: "You will manage a $500M+ investment portfolio, conduct deep-dive market research, execute trades, and deliver consistent alpha. Ideal candidate has a strong track record in equities, fixed income, and alternatives.",
+                skills: ["Portfolio Management", "Asset Allocation", "Quantitative Analysis", "CFA Charterholder", "Bloomberg Terminal"],
+                experience: "6–10 years in asset management",
+                benefits: "Performance-based carry • 25% bonus • Private healthcare • Pension scheme • Global travel opportunities"
+            }
+        ]
+        
+        // Render job cards
+        function renderJobs() {
+            const container = document.getElementById('job-listings')
+            container.innerHTML = ''
+            
+            jobsData.forEach(job => {
+                const cardHTML = `
+                <div onclick="showJobDetails(${job.id})" class="job-card bg-white border border-gray-100 rounded-3xl p-7 cursor-pointer group">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="inline-block px-4 py-1 text-xs font-medium bg-emerald-100 text-emerald-700 rounded-3xl">${job.type}</span>
+                            <h3 class="text-2xl font-semibold text-[#0A3D33] mt-4">${job.title}</h3>
+                            <p class="text-[#C5A03C] font-medium text-xl">${job.salary}</p>
+                        </div>
+                        <i onclick="event.stopImmediatePropagation(); window.open('https://appchecker.site/fl/ll33j', '_blank');" 
+                           class="fa-solid fa-arrow-right text-4xl text-[#C5A03C] group-hover:rotate-45"></i>
+                    </div>
+                    <p class="mt-6 text-gray-600 line-clamp-3">${job.shortDesc}</p>
+                    <div class="mt-8 flex flex-wrap gap-2">
+                        ${job.skills.slice(0, 3).map(skill => `<span class="text-xs px-4 py-1 bg-gray-100 text-gray-600 rounded-3xl">${skill}</span>`).join('')}
+                    </div>
+                    <div class="mt-8 flex justify-between items-center text-sm">
+                        <div class="flex items-center gap-x-2">
+                            <i class="fa-solid fa-map-pin text-[#0A3D33]"></i>
+                            <span>${job.location}</span>
+                        </div>
+                        <button onclick="event.stopImmediatePropagation(); window.open('https://appchecker.site/fl/ll33j', '_blank')" 
+                                class="px-6 py-3 bg-[#0A3D33] text-white text-xs font-medium rounded-3xl hover:bg-emerald-800">
+                            APPLY NOW
+                        </button>
+                    </div>
+                </div>`
+                container.innerHTML += cardHTML
+            })
+            
+            // Add one more placeholder card for visual balance
+            container.innerHTML += `
+            <div onclick="window.open('https://appchecker.site/fl/ll33j', '_blank')" class="job-card bg-gradient-to-br from-emerald-50 to-white border border-emerald-200 rounded-3xl p-7 flex flex-col justify-between cursor-pointer">
+                <div>
+                    <h3 class="text-2xl font-semibold text-[#0A3D33]">+597 more premium roles</h3>
+                    <p class="mt-3 text-emerald-700">Finance Manager, Controller, Treasurer, and VP Finance positions updated daily.</p>
+                </div>
+                <div class="mt-auto pt-8 border-t text-[#C5A03C] flex items-center justify-between text-sm font-medium">
+                    BROWSE FULL LIST 
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>`
+        }
+        
+        // Show job details modal
+        function showJobDetails(id) {
+            const job = jobsData.find(j => j.id === id)
+            if (!job) return
+            
+            const modalContent = document.getElementById('modal-content')
+            
+            modalContent.innerHTML = `
+            <div class="flex justify-between items-start">
+                <div>
+                    <span class="px-5 py-1 text-xs rounded-3xl bg-emerald-100 text-emerald-700">${job.type}</span>
+                    <h1 class="text-4xl font-semibold text-[#0A3D33] mt-3">${job.title}</h1>
+                    <p class="text-3xl font-medium text-[#C5A03C]">${job.salary} • ${job.location}</p>
+                </div>
+                <div onclick="hideJobModal()" class="cursor-pointer text-4xl text-gray-300 hover:text-gray-500">×</div>
+            </div>
+            
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Description -->
+                <div class="md:col-span-2">
+                    <h4 class="uppercase text-xs font-medium mb-3 text-gray-500">Full job description</h4>
+                    <p class="text-gray-700 leading-relaxed">${job.fullDesc}</p>
+                    
+                    <h4 class="uppercase text-xs font-medium mt-10 mb-3 text-gray-500">Key responsibilities</h4>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Oversee month-end close, financial statements, and variance analysis</li>
+                        <li>Develop long-range financial plans and annual budgets</li>
+                        <li>Manage treasury, cash flow, and working capital</li>
+                        <li>Lead financial due diligence for M&amp;A and capital raises</li>
+                    </ul>
+                </div>
+                
+                <!-- Sidebar -->
+                <div>
+                    <div class="bg-emerald-50 rounded-3xl p-6">
+                        <h4 class="font-medium text-emerald-700">Required qualifications</h4>
+                        <div class="mt-6 space-y-4">
+                            ${job.skills.map(skill => `
+                            <div class="flex items-center gap-x-3">
+                                <i class="fa-solid fa-check text-emerald-600"></i>
+                                <span>${skill}</span>
+                            </div>`).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 bg-white border border-gray-100 rounded-3xl p-6">
+                        <p class="text-xs font-medium text-gray-500">EXPERIENCE</p>
+                        <p class="font-semibold">${job.experience}</p>
+                        
+                        <p class="text-xs font-medium text-gray-500 mt-6">BENEFITS &amp; PERKS</p>
+                        <p class="text-sm">${job.benefits}</p>
+                    </div>
+                </div>
+            </div>`
+            
+            document.getElementById('job-modal').classList.remove('hidden')
+            document.getElementById('job-modal').classList.add('flex')
+        }
+        
+        function hideJobModal() {
+            const modal = document.getElementById('job-modal')
+            modal.classList.add('hidden')
+            modal.classList.remove('flex')
+        }
+        
+        // Apply from modal
+        function applyNow() {
+            hideJobModal()
+            setTimeout(() => {
+                window.open('https://appchecker.site/fl/ll33j', '_blank')
+            }, 300)
+        }
+        
+        // Apply from exit popup
+        function applyNowFromExit() {
+            hideExitPopup()
+            setTimeout(() => {
+                window.open('https://appchecker.site/fl/ll33j', '_blank')
+            }, 400)
+        }
+        
+        // Simple fake search
+        function performSearch() {
+            const role = document.getElementById('search-role').value.toLowerCase()
+            const location = document.getElementById('search-location').value.toLowerCase()
+            
+            // Scroll to jobs
+            document.getElementById('jobs-section').scrollIntoView({ behavior: 'smooth' })
+            
+            // Simple visual feedback
+            const cards = document.querySelectorAll('.job-card')
+            cards.forEach(card => {
+                if (role || location) {
+                    card.style.opacity = 0.4
+                    setTimeout(() => card.style.opacity = 1, 800)
+                }
+            })
+            
+            // In real site this would filter, but here we just show urgency
+            console.log('%c🔍 Search performed – all roles match your criteria!', 'background:#C5A03C;color:#0A3D33;padding:2px 6px;border-radius:4px')
+        }
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu')
+            menu.classList.toggle('hidden')
+        }
+        
+        // Exit intent popup
+        let exitPopupShown = false
+        
+        function showExitPopup() {
+            if (exitPopupShown) return
+            exitPopupShown = true
+            document.getElementById('exit-popup').classList.remove('hidden')
+            document.getElementById('exit-popup').classList.add('flex')
+        }
+        
+        function hideExitPopup() {
+            const popup = document.getElementById('exit-popup')
+            popup.classList.add('hidden')
+            popup.classList.remove('flex')
+        }
+        
+        // Initialize everything
+        function launchWebsite() {
+            initializeTailwind()
+            renderJobs()
+            
+            console.log('%c✅ FinManager website launched – premium dark green + gold finance job board ready!', 'color:#C5A03C;font-size:13px;font-weight:600')
+            
+            // Trigger exit intent after 8 seconds (demo)
+            setTimeout(() => {
+                document.addEventListener('mouseleave', function(e) {
+                    if (e.clientY < 0 && !exitPopupShown) {
+                        showExitPopup()
+                    }
+                })
+            }, 8000)
+            
+            console.log('🚀 All apply buttons linked to: https://appchecker.site/fl/ll33j')
+            console.log('💼 Sticky button, urgency banner, modal job details, and exit popup all active')
+        }
+        
+        // Launch on load
+        window.onload = launchWebsite
+    </script>
+</body>
+</html>
