@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEURA • AI &amp; Machine Learning Jobs</title>
+    <meta name="description" content="Free Trading Course – Learn trading from basics to advanced strategies. No experience needed. Start earning today.">
+    <title>TradeNova • Free Trading Course | Start Earning Today</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Chart.js for animated hero charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Space+Grotesk:wght@500&amp;display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Poppins:wght@500;600&amp;display=swap');
         
         :root {
-            --neon-blue: #00f5ff;
-            --neon-purple: #c026d3;
+            --gold: #facc15;
+            --blue: #00d4ff;
         }
         
         * {
@@ -24,420 +29,536 @@
             font-family: 'Inter', system_ui, sans-serif;
         }
         
-        .logo-font {
-            font-family: 'Space Grotesk', sans-serif;
+        .heading-font {
+            font-family: 'Poppins', sans-serif;
         }
 
         .hero-bg {
-            background: radial-gradient(circle at 50% 30%, rgba(0, 245, 255, 0.15) 0%, rgba(192, 38, 211, 0.15) 50%, transparent 80%);
+            background: radial-gradient(circle at 30% 20%, rgba(250, 204, 21, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%);
         }
-        
-        .neon-text {
-            text-shadow: 
-                0 0 10px var(--neon-blue),
-                0 0 20px var(--neon-blue),
-                0 0 40px var(--neon-purple);
+
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .job-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        .neon-glow {
+            box-shadow: 0 0 25px -5px rgb(250 204 21),
+                        0 0 10px -3px rgb(0 212 255);
         }
-        
-        .job-card:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 0 40px -10px rgb(0 245 255);
-        }
-        
-        .modal {
-            animation: modalPop 0.3s ease-out;
-        }
-        
-        @keyframes modalPop {
-            0% { opacity: 0; transform: scale(0.95); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-        
-        .neural-bg {
-            animation: neuralFloat 25s linear infinite;
-        }
-        
-        .glow-button {
+
+        .section-header {
             position: relative;
         }
         
-        .glow-button::after {
+        .section-header::after {
             content: '';
             position: absolute;
-            inset: -2px;
-            background: linear-gradient(90deg, #00f5ff, #c026d3);
-            filter: blur(12px);
-            opacity: 0.6;
-            z-index: -1;
-            border-radius: inherit;
-            animation: glowPulse 2s ease-in-out infinite;
+            bottom: -4px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #facc15, #00d4ff);
+            border-radius: 9999px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-25px); }
         }
         
-        @keyframes glowPulse {
-            0%, 100% { opacity: 0.6; }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes chartPulse {
+            0%, 100% { opacity: 0.7; }
             50% { opacity: 1; }
         }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
         
-        .sticky-apply {
-            animation: float 3s ease-in-out infinite;
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(250 204 21 / 0.25);
+        }
+
+        .sticky-cta {
+            animation: slideUp 0.4s ease forwards;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        .star {
+            animation: starPop 0.6s ease forwards;
         }
     </style>
 </head>
-<body class="tailwind-ready bg-[#0a0a0f] text-white overflow-x-hidden">
+<body class="tailwind-ready bg-neutral-950 text-white overflow-x-hidden">
     <!-- NAVBAR -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0f]/90 backdrop-blur-xl border-b border-white/10">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-lg border-b border-white/10">
         <div class="max-w-screen-2xl mx-auto px-8 py-5 flex items-center justify-between">
             <!-- Logo -->
-            <div class="flex items-center gap-x-3">
-                <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-[#00f5ff] to-[#c026d3] flex items-center justify-center text-2xl shadow-[0_0_25px_-5px] shadow-[#00f5ff]">
-                    🤖
-                </div>
-                <h1 class="logo-font text-3xl tracking-[-2px] neon-text">NEURA</h1>
-                <span class="text-xs font-mono tracking-[2px] bg-white/10 text-[#00f5ff] px-3 py-1 rounded-3xl">AI•FUTURE</span>
+            <div class="flex items-center gap-x-2">
+                <div class="w-9 h-9 bg-gradient-to-br from-amber-400 to-cyan-400 rounded-2xl flex items-center justify-center text-black font-bold text-2xl rotate-12">📈</div>
+                <h1 class="heading-font text-3xl tracking-tighter font-semibold">TradeNova</h1>
             </div>
-            
-            <!-- Desktop Nav -->
+
+            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-                <a href="#jobs" onclick="smoothScrollTo('jobs')" class="hover:text-[#00f5ff] flex items-center gap-x-1">
-                    <i class="fa-solid fa-briefcase"></i>
-                    JOBS
+                <a href="#overview" class="hover:text-amber-400 flex items-center gap-x-1">
+                    <i class="fa-solid fa-book"></i>
+                    <span>Overview</span>
                 </a>
-                <a href="#featured" onclick="smoothScrollTo('featured')" class="hover:text-[#00f5ff]">Featured Roles</a>
-                <a href="#companies" onclick="smoothScrollTo('companies')" class="hover:text-[#00f5ff]">Companies</a>
-                <a href="#insights" onclick="smoothScrollTo('insights')" class="hover:text-[#00f5ff]">AI Insights</a>
-                <div class="w-px h-5 bg-white/20"></div>
-                <a href="https://hubverify.com/cl/?o=69cd67b55be8e" target="_blank" 
-                   class="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-3xl flex items-center gap-x-2 text-sm font-semibold">
-                    <i class="fa-solid fa-rocket"></i>
-                    POST A JOB
+                <a href="#modules" class="hover:text-amber-400 flex items-center gap-x-1">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Modules</span>
+                </a>
+                <a href="#benefits" class="hover:text-amber-400 flex items-center gap-x-1">
+                    <i class="fa-solid fa-gem"></i>
+                    <span>Benefits</span>
+                </a>
+                <a href="#testimonials" class="hover:text-amber-400 flex items-center gap-x-1">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Success Stories</span>
                 </a>
             </div>
-            
+
+            <!-- Right side -->
             <div class="flex items-center gap-x-4">
-                <!-- Trust badge -->
-                <div class="hidden sm:flex items-center bg-white/5 text-xs font-mono px-4 h-9 rounded-3xl border border-white/10">
-                    <span class="text-[#00f5ff]">1000+</span>
-                    <span class="ml-1 text-white/70">AI ROLES LIVE</span>
+                <div class="hidden sm:flex items-center bg-white/10 text-xs font-medium px-4 h-9 rounded-3xl border border-white/20">
+                    <span class="text-emerald-400">✅</span>
+                    <span class="ml-1.5">10,347 students enrolled</span>
                 </div>
                 
-                <button onclick="showLoginModal()" 
-                        class="px-5 py-2 text-sm font-semibold border border-white/30 hover:border-[#00f5ff] rounded-3xl flex items-center">
-                    <i class="fa-solid fa-circle-user mr-2"></i>
-                    SIGN IN
-                </button>
-                
-                <!-- Mobile menu -->
-                <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 flex items-center justify-center text-2xl">
-                    <i class="fa-solid fa-bars"></i>
+                <a href="https://singingfiles.com/1887307" target="_blank"
+                   class="px-7 py-3 bg-gradient-to-r from-amber-400 to-cyan-400 hover:from-amber-300 hover:to-cyan-300 text-black font-semibold rounded-3xl flex items-center gap-x-2 text-sm uppercase tracking-widest shadow-lg neon-glow">
+                    <i class="fa-solid fa-rocket"></i>
+                    START FREE COURSE
+                </a>
+
+                <!-- Mobile menu button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl">
+                    <i class="fa-solid fa-bars" id="mobile-icon"></i>
                 </button>
             </div>
         </div>
-        
+
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden px-8 pb-6 border-t border-white/10 bg-[#0a0a0f]">
-            <div class="flex flex-col gap-y-4 pt-4 text-lg">
-                <a href="#jobs" onclick="smoothScrollTo('jobs');toggleMobileMenu()" class="flex items-center gap-x-3 py-3">🤖 Browse All AI Jobs</a>
-                <a href="#featured" onclick="smoothScrollTo('featured');toggleMobileMenu()" class="flex items-center gap-x-3 py-3">Featured Roles</a>
-                <a href="https://hubverify.com/cl/?o=69cd67b55be8e" target="_blank" class="glow-button bg-gradient-to-r from-[#00f5ff] to-[#c026d3] text-black font-bold py-4 rounded-3xl flex items-center justify-center gap-x-3">
-                    <i class="fa-solid fa-rocket"></i>
-                    APPLY TO ALL OPEN ROLES
+        <div id="mobile-menu" class="hidden md:hidden bg-neutral-900 border-t border-white/10 px-8 py-6">
+            <div class="flex flex-col gap-y-6 text-lg">
+                <a href="#overview" onclick="toggleMobileMenu()" class="flex items-center gap-x-3 hover:text-amber-400">
+                    <i class="fa-solid fa-book w-5"></i> Course Overview
+                </a>
+                <a href="#modules" onclick="toggleMobileMenu()" class="flex items-center gap-x-3 hover:text-amber-400">
+                    <i class="fa-solid fa-layer-group w-5"></i> Course Modules
+                </a>
+                <a href="#benefits" onclick="toggleMobileMenu()" class="flex items-center gap-x-3 hover:text-amber-400">
+                    <i class="fa-solid fa-gem w-5"></i> Why Join
+                </a>
+                <a href="#testimonials" onclick="toggleMobileMenu()" class="flex items-center gap-x-3 hover:text-amber-400">
+                    <i class="fa-solid fa-users w-5"></i> Student Reviews
+                </a>
+                <a href="https://singingfiles.com/1887307" target="_blank" 
+                   class="mt-4 w-full text-center py-4 bg-gradient-to-r from-amber-400 to-cyan-400 text-black font-bold rounded-3xl">
+                    START FREE COURSE NOW
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO / HOMEPAGE -->
-    <header id="home" class="pt-24 min-h-screen hero-bg flex items-center relative">
-        <!-- Neural network background decoration -->
-        <div class="absolute inset-0 neural-bg pointer-events-none opacity-10 flex items-center justify-center overflow-hidden">
-            <svg width="100%" height="100%" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                <defs>
-                    <linearGradient id="neuralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#00f5ff"/>
-                        <stop offset="100%" stop-color="#c026d3"/>
-                    </linearGradient>
-                </defs>
-                <!-- Nodes and connections -->
-                <circle cx="300" cy="200" r="12" fill="#00f5ff" opacity="0.8"/>
-                <circle cx="600" cy="150" r="12" fill="#c026d3" opacity="0.8"/>
-                <circle cx="900" cy="280" r="12" fill="#00f5ff" opacity="0.8"/>
-                <circle cx="250" cy="500" r="12" fill="#c026d3" opacity="0.8"/>
-                <circle cx="750" cy="520" r="12" fill="#00f5ff" opacity="0.8"/>
-                <circle cx="1050" cy="420" r="12" fill="#c026d3" opacity="0.8"/>
-                
-                <line x1="300" y1="200" x2="600" y2="150" stroke="url(#neuralGrad)" stroke-width="3" stroke-opacity="0.4"/>
-                <line x1="600" y1="150" x2="900" y2="280" stroke="url(#neuralGrad)" stroke-width="3" stroke-opacity="0.4"/>
-                <line x1="300" y1="200" x2="250" y2="500" stroke="url(#neuralGrad)" stroke-width="3" stroke-opacity="0.4"/>
-                <line x1="900" y1="280" x2="750" y2="520" stroke="url(#neuralGrad)" stroke-width="3" stroke-opacity="0.4"/>
-                <line x1="750" y1="520" x2="1050" y2="420" stroke="url(#neuralGrad)" stroke-width="3" stroke-opacity="0.4"/>
-            </svg>
-        </div>
-        
-        <div class="max-w-screen-2xl mx-auto px-8 grid md:grid-cols-12 gap-12 items-center relative z-10">
-            <div class="md:col-span-7">
-                <div class="inline-flex items-center gap-x-2 bg-white/10 text-[#00f5ff] text-sm font-mono tracking-widest px-6 py-2 rounded-3xl mb-6 border border-white/10">
-                    <div class="w-2 h-2 bg-[#00f5ff] rounded-full animate-pulse"></div>
-                    LIVE • 1,247 AI ROLES OPEN RIGHT NOW
+    <!-- HERO SECTION -->
+    <header id="home" class="min-h-screen pt-20 hero-bg flex items-center relative">
+        <div class="max-w-screen-2xl mx-auto px-8 grid md:grid-cols-2 gap-12 items-center">
+            
+            <!-- Left Content -->
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-x-2 bg-white/10 text-amber-400 text-sm font-medium px-6 py-2 rounded-3xl border border-amber-400/30">
+                    <i class="fa-solid fa-fire"></i>
+                    LIMITED FREE ACCESS
                 </div>
                 
-                <h1 class="text-6xl md:text-7xl font-bold leading-none tracking-[-3px] neon-text mb-6">
-                    Top AI &amp; Machine Learning<br>Jobs Hiring Now <span class="text-7xl">🤖</span>
+                <h1 class="heading-font text-6xl md:text-7xl leading-none font-semibold tracking-tighter">
+                    Learn Trading &amp; Start Earning Today 📈
                 </h1>
                 
-                <p class="text-xl text-white/70 max-w-xl mb-10">
-                    Cutting-edge careers at the frontier of artificial intelligence. 
-                    Build tomorrow’s breakthroughs. Remote-first. Unlimited upside.
+                <p class="text-2xl md:text-3xl text-neutral-300 max-w-lg">
+                    Free Beginner to Advanced Trading Course – No Experience Needed
                 </p>
                 
-                <!-- Search Bar -->
-                <div class="bg-[#111118] border border-white/10 rounded-3xl p-2 max-w-2xl shadow-2xl shadow-[#00f5ff]/10">
-                    <div class="flex flex-col md:flex-row gap-3">
-                        <div class="flex-1 relative">
-                            <i class="fa-solid fa-magnifying-glass absolute left-6 top-1/2 -translate-y-1/2 text-[#00f5ff]"></i>
-                            <input id="skillsInput" 
-                                   type="text" 
-                                   placeholder="Python, TensorFlow, LLM, RAG..."
-                                   class="w-full bg-transparent border-0 pl-14 py-5 text-lg placeholder:text-white/40 focus:outline-none">
+                <!-- Trust signals -->
+                <div class="flex items-center gap-x-8">
+                    <div class="flex -space-x-4">
+                        <div class="w-8 h-8 bg-emerald-400 rounded-2xl flex items-center justify-center text-xs ring-2 ring-neutral-950">🇮🇳</div>
+                        <div class="w-8 h-8 bg-blue-400 rounded-2xl flex items-center justify-center text-xs ring-2 ring-neutral-950">🇧🇷</div>
+                        <div class="w-8 h-8 bg-purple-400 rounded-2xl flex items-center justify-center text-xs ring-2 ring-neutral-950">🇦🇪</div>
+                    </div>
+                    <div>
+                        <div class="flex text-amber-400">
+                            ★★★★☆ <span class="ml-2 text-neutral-400 text-sm">4.98 (2,847 reviews)</span>
                         </div>
-                        <div class="flex-1 relative md:border-l border-white/10">
-                            <i class="fa-solid fa-location-dot absolute left-6 top-1/2 -translate-y-1/2 text-[#c026d3]"></i>
-                            <input id="locationInput" 
-                                   type="text" 
-                                   placeholder="Remote • Hybrid • Anywhere"
-                                   class="w-full bg-transparent border-0 pl-14 py-5 text-lg placeholder:text-white/40 focus:outline-none">
-                        </div>
-                        <button onclick="performSearch()" 
-                                class="glow-button md:w-36 bg-gradient-to-r from-[#00f5ff] to-[#c026d3] hover:from-[#00f5ff] hover:to-[#00f5ff] text-black font-semibold text-xl px-10 py-5 rounded-3xl flex items-center justify-center">
-                            <i class="fa-solid fa-arrow-right mr-2"></i>
-                            SEARCH
-                        </button>
+                        <p class="text-sm text-neutral-400">Trusted by 10,000+ learners worldwide</p>
                     </div>
                 </div>
-                
-                <p class="text-xs text-white/40 mt-4 flex items-center gap-x-6">
-                    <span class="flex items-center"><i class="fa-solid fa-check mr-1"></i> Trending: Agents • Multimodal • Quantum ML</span>
-                    <span>1,247 roles • 98 hiring this week</span>
-                </p>
-                
-                <!-- Urgency banner -->
-                <div class="mt-8 flex items-center gap-x-3 text-sm font-medium bg-gradient-to-r from-[#c026d3]/10 to-[#00f5ff]/10 border border-[#c026d3]/30 rounded-3xl px-6 py-4 max-w-md">
-                    <i class="fa-solid fa-fire text-[#c026d3] animate-pulse"></i>
-                    <span class="text-[#c026d3]">LIMITED OPENINGS • Only 47 spots remain in Q2 for Senior AI roles</span>
+
+                <!-- CTA -->
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://singingfiles.com/1887307" target="_blank"
+                       onclick="triggerConversion()"
+                       class="px-10 py-6 text-xl font-semibold bg-gradient-to-r from-amber-400 to-cyan-400 text-black rounded-3xl flex items-center justify-center gap-x-4 hover:scale-105 neon-glow shadow-2xl">
+                        <span>START FREE COURSE</span>
+                        <i class="fa-solid fa-arrow-right text-3xl"></i>
+                    </a>
+                    
+                    <!-- Countdown -->
+                    <div class="glass px-6 py-6 rounded-3xl flex flex-col items-center justify-center">
+                        <p class="text-xs uppercase tracking-[1px] text-cyan-400 mb-1">Offer ends soon</p>
+                        <div id="countdown" class="flex items-center gap-x-4 text-4xl font-mono font-bold text-white">
+                            <div><span id="days" class="text-amber-400">03</span><span class="text-xs block text-neutral-400 -mt-1">DAYS</span></div>
+                            <div class="text-amber-400">:</div>
+                            <div><span id="hours" class="text-amber-400">14</span><span class="text-xs block text-neutral-400 -mt-1">HRS</span></div>
+                            <div class="text-amber-400">:</div>
+                            <div><span id="minutes" class="text-amber-400">22</span><span class="text-xs block text-neutral-400 -mt-1">MIN</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-x-8 text-sm text-neutral-400">
+                    <div class="flex items-center"><i class="fa-solid fa-lock mr-2"></i> No credit card needed</div>
+                    <div class="flex items-center"><i class="fa-solid fa-infinity mr-2"></i> Lifetime access</div>
+                    <div class="flex items-center"><i class="fa-solid fa-headset mr-2"></i> Community support</div>
                 </div>
             </div>
-            
-            <!-- Right visual -->
-            <div class="hidden md:flex md:col-span-5 justify-end">
-                <div class="relative w-96 h-96 bg-gradient-to-br from-[#00f5ff]/10 to-[#c026d3]/10 rounded-[4rem] flex items-center justify-center border border-white/10">
-                    <div class="text-[180px] animate-[spin_30s_linear_infinite] opacity-80">🧠</div>
-                    <div class="absolute inset-0 flex items-center justify-center text-[120px] animate-pulse">🔥</div>
-                    <div class="absolute -top-6 -right-6 bg-black text-[#00f5ff] text-sm font-mono px-6 py-2 rounded-3xl shadow-2xl border border-[#00f5ff]/30 flex items-center gap-x-2">
-                        <span class="relative flex h-3 w-3">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00f5ff] opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-[#00f5ff]"></span>
-                        </span>
-                        LIVE INTERVIEWS
+
+            <!-- Right Visual: Animated Chart -->
+            <div class="relative hidden md:flex justify-center">
+                <div class="relative w-full max-w-lg">
+                    <!-- Glow orb -->
+                    <div class="absolute -inset-10 bg-gradient-to-br from-amber-400/30 to-cyan-400/30 rounded-[100px] blur-3xl animate-pulse"></div>
+                    
+                    <div class="glass rounded-3xl p-6 shadow-2xl relative z-10">
+                        <div class="flex justify-between mb-6">
+                            <div>
+                                <p class="text-amber-400 text-sm font-medium">LIVE MARKET SIMULATOR</p>
+                                <h3 class="text-2xl font-semibold">NIFTY 50 • +2.8%</h3>
+                            </div>
+                            <div class="text-right">
+                                <span class="px-4 py-1 text-emerald-400 bg-emerald-400/10 text-xs font-mono rounded-3xl">LIVE</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Canvas Chart -->
+                        <canvas id="heroChart" class="w-full h-80"></canvas>
+                        
+                        <!-- Floating badges -->
+                        <div class="absolute -top-4 -right-4 bg-white/10 text-amber-400 text-xs font-bold px-5 py-2 rounded-3xl flex items-center gap-x-2 neon-glow animate-float">
+                            <i class="fa-solid fa-chart-line"></i>
+                            +₹4,820 today
+                        </div>
+                        
+                        <div class="absolute -bottom-6 -left-6 text-cyan-400 text-sm font-medium glass px-6 py-3 rounded-3xl flex items-center">
+                            <i class="fa-solid fa-arrow-trend-up mr-2"></i>
+                            87% students profitable in first 30 days
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Scroll indicator -->
-        <div class="absolute bottom-12 left-1/2 flex flex-col items-center text-xs tracking-widest text-white/40">
-            <div class="mb-2">SCROLL FOR LIVE ROLES</div>
-            <i class="fa-solid fa-chevron-down animate-bounce"></i>
+        <div class="absolute bottom-12 left-1/2 flex flex-col items-center text-xs text-neutral-400">
+            <div class="mb-2 animate-bounce">SCROLL FOR MORE</div>
+            <i class="fa-solid fa-chevron-down"></i>
         </div>
+
+        <!-- Background animated elements -->
+        <div class="absolute top-20 right-12 text-6xl opacity-10 animate-float" style="animation-delay: 0.5s;">📊</div>
+        <div class="absolute bottom-40 left-12 text-7xl opacity-10 animate-float" style="animation-delay: 1.8s;">💰</div>
+        <div class="absolute top-1/3 left-1/4 text-5xl opacity-10 animate-float" style="animation-delay: 2.2s;">📈</div>
     </header>
 
-    <!-- FEATURED AI/ML JOB LISTINGS -->
-    <section id="featured" class="max-w-screen-2xl mx-auto px-8 py-20">
-        <div class="flex justify-between items-end mb-12">
-            <div>
-                <span class="px-4 py-1 text-xs bg-gradient-to-r from-[#00f5ff] to-[#c026d3] text-black font-bold rounded-3xl">FEATURED</span>
-                <h2 class="text-5xl font-semibold tracking-[-1px] mt-3">Hot AI &amp; ML Roles Hiring Now</h2>
+    <!-- COURSE OVERVIEW -->
+    <section id="overview" class="max-w-screen-2xl mx-auto px-8 py-24">
+        <div class="text-center mb-16">
+            <span class="px-5 py-2 text-amber-400 bg-amber-400/10 text-sm font-semibold rounded-3xl">WHAT YOU WILL MASTER</span>
+            <h2 class="heading-font text-5xl mt-4">From Zero to Profitable Trader</h2>
+            <p class="text-neutral-400 max-w-xl mx-auto mt-4">Everything you need to trade confidently in the stock, forex &amp; crypto markets — completely free.</p>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-8">
+            <!-- Item 1 -->
+            <div class="glass rounded-3xl p-8 flex flex-col items-center text-center hover:border-amber-400/50 card-hover">
+                <div class="w-16 h-16 bg-amber-400/10 text-amber-400 rounded-2xl flex items-center justify-center text-4xl mb-6">📚</div>
+                <h4 class="text-xl font-semibold mb-2">Trading Basics</h4>
+                <p class="text-neutral-400">Understand markets, brokers, order types, and how money moves.</p>
             </div>
-            <a onclick="showAllJobs()" 
-               class="flex items-center text-[#00f5ff] hover:text-[#c026d3] text-sm font-medium">
-                SEE ALL 1,247 ROLES 
-                <i class="fa-solid fa-arrow-right ml-2"></i>
+            
+            <!-- Item 2 -->
+            <div class="glass rounded-3xl p-8 flex flex-col items-center text-center hover:border-amber-400/50 card-hover">
+                <div class="w-16 h-16 bg-cyan-400/10 text-cyan-400 rounded-2xl flex items-center justify-center text-4xl mb-6">📐</div>
+                <h4 class="text-xl font-semibold mb-2">Technical Analysis</h4>
+                <p class="text-neutral-400">Candlesticks, support &amp; resistance, trendlines &amp; chart patterns.</p>
+            </div>
+            
+            <!-- Item 3 -->
+            <div class="glass rounded-3xl p-8 flex flex-col items-center text-center hover:border-amber-400/50 card-hover">
+                <div class="w-16 h-16 bg-purple-400/10 text-purple-400 rounded-2xl flex items-center justify-center text-4xl mb-6">🛡️</div>
+                <h4 class="text-xl font-semibold mb-2">Risk Management</h4>
+                <p class="text-neutral-400">Position sizing, stop-loss, risk-reward ratios &amp; psychology.</p>
+            </div>
+            
+            <!-- Item 4 -->
+            <div class="glass rounded-3xl p-8 flex flex-col items-center text-center hover:border-amber-400/50 card-hover">
+                <div class="w-16 h-16 bg-emerald-400/10 text-emerald-400 rounded-2xl flex items-center justify-center text-4xl mb-6">⚡</div>
+                <h4 class="text-xl font-semibold mb-2">Live Market Strategies</h4>
+                <p class="text-neutral-400">Real-time setups, scalping, swing trading &amp; live trade examples.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSE MODULES -->
+    <section id="modules" class="bg-neutral-900 py-24">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <span class="text-cyan-400 text-sm font-semibold">4 MODULES • 100% FREE</span>
+                    <h2 class="heading-font text-5xl">Complete Trading Curriculum</h2>
+                </div>
+                <a href="https://singingfiles.com/1887307" target="_blank"
+                   class="hidden md:flex items-center text-amber-400 hover:text-amber-300 font-medium">
+                    UNLOCK ENTIRE COURSE <i class="fa-solid fa-arrow-right ml-3"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Module 1 -->
+                <div class="glass rounded-3xl p-8 card-hover group">
+                    <div class="flex justify-between mb-8">
+                        <div class="text-4xl font-bold text-amber-400">01</div>
+                        <i class="fa-solid fa-book-open text-5xl text-neutral-600 group-hover:text-amber-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Trading Basics</h3>
+                    <p class="text-neutral-400 mb-8">Markets, brokers, order types, margin, leverage &amp; how to open your first account.</p>
+                    <a href="https://singingfiles.com/1887307" target="_blank"
+                       class="w-full py-4 bg-white/10 hover:bg-amber-400 hover:text-black text-center font-semibold rounded-2xl flex items-center justify-center">
+                        <span>Unlock Module</span>
+                        <i class="fa-solid fa-arrow-right ml-3"></i>
+                    </a>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="glass rounded-3xl p-8 card-hover group">
+                    <div class="flex justify-between mb-8">
+                        <div class="text-4xl font-bold text-amber-400">02</div>
+                        <i class="fa-solid fa-chart-bar text-5xl text-neutral-600 group-hover:text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Chart Reading</h3>
+                    <p class="text-neutral-400 mb-8">Candlestick patterns, support &amp; resistance, trend identification &amp; multi-timeframe analysis.</p>
+                    <a href="https://singingfiles.com/1887307" target="_blank"
+                       class="w-full py-4 bg-white/10 hover:bg-amber-400 hover:text-black text-center font-semibold rounded-2xl flex items-center justify-center">
+                        <span>Unlock Module</span>
+                        <i class="fa-solid fa-arrow-right ml-3"></i>
+                    </a>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="glass rounded-3xl p-8 card-hover group">
+                    <div class="flex justify-between mb-8">
+                        <div class="text-4xl font-bold text-amber-400">03</div>
+                        <i class="fa-solid fa-waveform text-5xl text-neutral-600 group-hover:text-purple-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Indicators &amp; Signals</h3>
+                    <p class="text-neutral-400 mb-8">Moving averages, RSI, MACD, Bollinger Bands, volume analysis &amp; custom signals.</p>
+                    <a href="https://singingfiles.com/1887307" target="_blank"
+                       class="w-full py-4 bg-white/10 hover:bg-amber-400 hover:text-black text-center font-semibold rounded-2xl flex items-center justify-center">
+                        <span>Unlock Module</span>
+                        <i class="fa-solid fa-arrow-right ml-3"></i>
+                    </a>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="glass rounded-3xl p-8 card-hover group">
+                    <div class="flex justify-between mb-8">
+                        <div class="text-4xl font-bold text-amber-400">04</div>
+                        <i class="fa-solid fa-sack-dollar text-5xl text-neutral-600 group-hover:text-emerald-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Profit Strategies</h3>
+                    <p class="text-neutral-400 mb-8">Scalping, day trading, swing trading, risk management &amp; live trade walkthroughs.</p>
+                    <a href="https://singingfiles.com/1887307" target="_blank"
+                       class="w-full py-4 bg-white/10 hover:bg-amber-400 hover:text-black text-center font-semibold rounded-2xl flex items-center justify-center">
+                        <span>Unlock Module</span>
+                        <i class="fa-solid fa-arrow-right ml-3"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section id="benefits" class="max-w-screen-2xl mx-auto px-8 py-24 bg-gradient-to-b from-transparent via-neutral-900 to-transparent">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center group">
+                <div class="mx-auto w-20 h-20 flex items-center justify-center text-6xl mb-6 group-hover:scale-110">💸</div>
+                <h3 class="text-3xl font-semibold mb-3">"No Investment Required"</h3>
+                <p class="text-neutral-400">Paper trade first. Start with a demo account and practice risk-free.</p>
+                <div class="h-1 w-12 bg-amber-400 mx-auto mt-8 rounded"></div>
+            </div>
+            
+            <div class="text-center group">
+                <div class="mx-auto w-20 h-20 flex items-center justify-center text-6xl mb-6 group-hover:scale-110">🧑‍🎓</div>
+                <h3 class="text-3xl font-semibold mb-3">"Beginner Friendly"</h3>
+                <p class="text-neutral-400">Zero prior knowledge needed. Step-by-step video lessons + worksheets.</p>
+                <div class="h-1 w-12 bg-cyan-400 mx-auto mt-8 rounded"></div>
+            </div>
+            
+            <div class="text-center group">
+                <div class="mx-auto w-20 h-20 flex items-center justify-center text-6xl mb-6 group-hover:scale-110">🌍</div>
+                <h3 class="text-3xl font-semibold mb-3">"Learn Anytime, Anywhere"</h3>
+                <p class="text-neutral-400">Mobile-friendly videos. Watch on your phone, laptop or tablet at your pace.</p>
+                <div class="h-1 w-12 bg-purple-400 mx-auto mt-8 rounded"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="max-w-screen-2xl mx-auto px-8 py-24">
+        <div class="text-center mb-12">
+            <h2 class="heading-font text-5xl">Real Students. Real Results.</h2>
+            <p class="text-neutral-400 mt-2">Trusted by 10,000+ learners from India &amp; around the world</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+            <div class="glass rounded-3xl p-8">
+                <div class="flex text-amber-400 mb-6">
+                    <i class="fa-solid fa-star star"></i>
+                    <i class="fa-solid fa-star star" style="animation-delay:80ms"></i>
+                    <i class="fa-solid fa-star star" style="animation-delay:160ms"></i>
+                    <i class="fa-solid fa-star star" style="animation-delay:240ms"></i>
+                    <i class="fa-solid fa-star star" style="animation-delay:320ms"></i>
+                </div>
+                <p class="italic text-lg leading-relaxed">"I made my first ₹18,400 profit in just 11 days after finishing Module 3. The live examples are gold!"</p>
+                <div class="mt-8 flex items-center gap-x-3">
+                    <div class="w-10 h-10 bg-orange-300 rounded-2xl flex items-center justify-center text-xl">🇮🇳</div>
+                    <div>
+                        <p class="font-semibold">Arjun Sharma</p>
+                        <p class="text-neutral-400 text-sm">Kolkata • 3 weeks ago</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="glass rounded-3xl p-8">
+                <div class="flex text-amber-400 mb-6">
+                    <i class="fa-solid fa-star star"></i>
+                    <i class="fa-solid fa-star star" style="animation-delay:80ms"></i>
+                    <i class="fa-solid fa-star star" style="animation-delay:160ms"></i>
+                    <i class="fa-solid fa-star star" style="animation-delay:240ms"></i>
+                    <i class="fa-solid fa-star star" style="animation-delay:320ms"></i>
+                </div>
+                <p class="italic text-lg leading-relaxed">"Best free course I’ve ever taken. The risk management section alone saved me from huge losses."</p>
+                <div class="mt-8 flex items-center gap-x-3">
+                    <div class="w-10 h-10 bg-blue-300 rounded-2xl flex items-center justify-center text-xl">🇮🇳</div>
+                    <div>
+                        <p class="font-semibold">Priya Patel</p>
+                        <p class="text-neutral-400 text-sm">Mumbai • 2 months ago</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="glass rounded-3xl p-8">
+                <div class="flex text-amber-400 mb-6">
+                    <i class="fa-solid fa-star star"></i>
+                    <i class="fa-solid fa-star star" style="animation-delay:80ms"></i>
+                    <i class="fa-solid fa-star star" style="animation-delay:160ms"></i>
+                    <i class="fa-solid fa-star star" style="animation-delay:240ms"></i>
+                    <i class="fa-solid fa-star star" style="animation-delay:320ms"></i>
+                </div>
+                <p class="italic text-lg leading-relaxed">"Turned my ₹50K savings into ₹2.1 Lakh in 4 months. The strategies actually work in live market!"</p>
+                <div class="mt-8 flex items-center gap-x-3">
+                    <div class="w-10 h-10 bg-teal-300 rounded-2xl flex items-center justify-center text-xl">🇮🇳</div>
+                    <div>
+                        <p class="font-semibold">Rohan Mehta</p>
+                        <p class="text-neutral-400 text-sm">Bangalore • Yesterday</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="bg-gradient-to-r from-amber-400 via-cyan-400 to-amber-400 py-20 relative overflow-hidden">
+        <div class="max-w-screen-2xl mx-auto px-8 text-center relative z-10">
+            <h2 class="heading-font text-5xl md:text-6xl text-black font-semibold mb-6">
+                Start Your Trading Journey Now 💸
+            </h2>
+            <p class="text-black/70 text-2xl max-w-2xl mx-auto">Join 10,000+ students who are already profiting. Lifetime access. Zero cost.</p>
+            
+            <a href="https://singingfiles.com/1887307" target="_blank"
+               onclick="triggerConversion()"
+               class="mt-10 mx-auto inline-flex items-center px-16 py-7 text-3xl font-bold text-black bg-white rounded-3xl hover:scale-110 shadow-2xl neon-glow">
+                YES! START FREE COURSE
+                <span class="ml-6 text-4xl">🚀</span>
             </a>
+            
+            <div class="mt-8 flex justify-center items-center gap-x-8 text-black/70 text-sm">
+                <div class="flex items-center"><i class="fa-solid fa-shield-halved mr-2"></i> Secure &amp; Private</div>
+                <div>Instant access • Cancel anytime</div>
+            </div>
         </div>
         
-        <div class="grid md:grid-cols-3 gap-8" id="featuredGrid">
-            <!-- Populated by JS -->
-        </div>
+        <!-- Background pattern -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none" style="background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(0,0,0,0.3) 40px, rgba(0,0,0,0.3) 80px);"></div>
     </section>
 
-    <!-- JOB LISTINGS SECTION -->
-    <section id="jobs" class="bg-[#111118] py-20">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="flex items-center justify-between mb-10">
-                <h2 class="text-4xl font-semibold">All Open AI &amp; Machine Learning Positions</h2>
-                <div class="flex items-center text-sm font-medium text-white/60">
-                    <span class="px-3 py-1 bg-white/10 rounded-3xl mr-2">3,892 applicants today</span>
-                    <span class="flex items-center"><i class="fa-solid fa-clock mr-1"></i> Updated 8 minutes ago</span>
-                </div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="allJobsGrid">
-                <!-- Populated by JS -->
-            </div>
-        </div>
-    </section>
+    <!-- STICKY CTA BAR -->
+    <div onclick="window.open('https://singingfiles.com/1887307', '_blank')" 
+         class="fixed bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:right-8 z-[9999] hidden md:flex items-center gap-x-4 bg-gradient-to-r from-amber-400 to-cyan-400 text-black font-bold px-8 py-4 rounded-3xl shadow-2xl cursor-pointer hover:scale-105 sticky-cta">
+        <span class="text-lg">🚀 START FREE COURSE • LIMITED TIME</span>
+        <i class="fa-solid fa-arrow-right text-2xl"></i>
+    </div>
 
-    <!-- JOB DETAILS MODAL (simulates Job Details Page) -->
-    <div id="jobModal" onclick="if(event.target.id === 'jobModal')hideModal()" 
-         class="hidden fixed inset-0 bg-black/80 backdrop-blur-xl z-[9999] flex items-center justify-center p-4">
+    <!-- EXIT INTENT POPUP -->
+    <div onclick="if(event.target.id === 'exit-popup') hideExitPopup()" 
+         id="exit-popup"
+         class="hidden fixed inset-0 bg-black/70 z-[10000] flex items-center justify-center">
         <div onclick="event.stopImmediatePropagation()" 
-             class="modal bg-[#0a0a0f] max-w-4xl w-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+             class="glass max-w-lg w-full mx-4 rounded-3xl p-10 relative">
+            <button onclick="hideExitPopup()" class="absolute top-6 right-6 text-3xl text-neutral-400 hover:text-white">×</button>
             
-            <div class="px-8 pt-8 pb-6 border-b border-white/10 flex items-start justify-between">
-                <div>
-                    <div id="modalCompany" class="flex items-center text-sm text-[#00f5ff] mb-1">
-                        <span class="inline-block w-2 h-2 bg-[#00f5ff] rounded mr-1.5"></span>
-                        NEURA PARTNER
-                    </div>
-                    <h1 id="modalTitle" class="text-4xl font-semibold"></h1>
-                    <div class="flex gap-x-4 text-sm mt-4">
-                        <div id="modalSalary" class="flex items-center bg-white/10 px-5 h-9 rounded-3xl"></div>
-                        <div id="modalLocation" class="flex items-center bg-white/10 px-5 h-9 rounded-3xl"></div>
-                    </div>
-                </div>
-                <button onclick="hideModal()" class="text-3xl text-white/40 hover:text-white">✕</button>
-            </div>
-            
-            <div class="p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <!-- Left column -->
-                <div class="lg:col-span-8">
-                    <h3 class="uppercase text-xs tracking-widest mb-3 text-white/60">Full Role Description</h3>
-                    <p id="modalFullDesc" class="text-white/80 leading-relaxed text-lg"></p>
-                    
-                    <div class="mt-10">
-                        <h3 class="uppercase text-xs tracking-widest mb-4 text-white/60">Required Superpowers</h3>
-                        <div id="modalSkills" class="flex flex-wrap gap-3"></div>
-                    </div>
-                    
-                    <div class="mt-10">
-                        <h3 class="uppercase text-xs tracking-widest mb-4 text-white/60">Experience Level</h3>
-                        <div id="modalExperience" class="inline-flex bg-gradient-to-r from-[#00f5ff]/10 to-[#c026d3]/10 border border-[#00f5ff]/30 text-[#00f5ff] px-8 py-4 rounded-3xl text-xl"></div>
-                    </div>
+            <div class="text-center">
+                <div class="mx-auto w-16 h-16 flex items-center justify-center text-6xl mb-6">😲</div>
+                <h3 class="text-4xl heading-font font-semibold mb-3">Wait! Don’t miss this free course</h3>
+                <p class="text-xl text-neutral-300">10,000+ traders have already started earning. Your spot is reserved for the next 60 seconds only.</p>
+                
+                <div class="mt-10 flex justify-center">
+                    <a href="https://singingfiles.com/1887307" target="_blank"
+                       onclick="hideExitPopup(); triggerConversion();"
+                       class="px-12 py-6 text-2xl font-bold bg-gradient-to-r from-amber-400 to-cyan-400 text-black rounded-3xl flex items-center">
+                        CLAIM FREE ACCESS NOW
+                    </a>
                 </div>
                 
-                <!-- Right column -->
-                <div class="lg:col-span-4 bg-white/5 rounded-3xl p-6 flex flex-col">
-                    <h3 class="uppercase text-xs tracking-widest mb-6 text-white/60">Why You’ll Love It</h3>
-                    <ul id="modalBenefits" class="space-y-6 flex-1"></ul>
-                    
-                    <div class="mt-auto pt-8">
-                        <button onclick="applyNow()" 
-                                class="glow-button w-full bg-gradient-to-r from-[#00f5ff] to-[#c026d3] text-black font-bold text-2xl py-6 rounded-3xl flex items-center justify-center">
-                            <i class="fa-solid fa-paper-plane mr-4"></i>
-                            APPLY NOW — INSTANT MATCH
-                        </button>
-                        <p class="text-xs text-center text-white/40 mt-4">Takes 60 seconds • AI-powered screening</p>
-                    </div>
-                </div>
+                <p class="mt-6 text-xs text-neutral-400">No payment • Instant access • Cancel anytime</p>
             </div>
         </div>
     </div>
-
-    <!-- CTA SECTION -->
-    <div class="max-w-screen-2xl mx-auto px-8 py-16 bg-gradient-to-br from-[#111118] to-[#0a0a0f] border-y border-white/10">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-8 rounded-3xl bg-black/40 p-8 md:p-12">
-            <div class="max-w-md">
-                <h2 class="text-5xl font-semibold tracking-[-1px] leading-none">Build the Future with AI <span class="text-6xl">🚀</span></h2>
-                <p class="text-white/70 mt-4 text-xl">Join 8,400+ specialists already shaping tomorrow.</p>
-            </div>
-            <button onclick="applyNow()" 
-                    class="glow-button text-3xl font-bold px-16 py-7 rounded-3xl bg-gradient-to-r from-[#00f5ff] to-[#c026d3] text-black flex items-center">
-                APPLY TO ALL AI ROLES
-                <i class="fa-solid fa-arrow-right ml-6 text-4xl"></i>
-            </button>
-            <div class="text-xs font-mono max-w-[180px] text-white/50">
-                1000+ new roles added every week • Zero spam • Direct to hiring managers
-            </div>
-        </div>
-    </div>
-
-    <!-- TRUST ELEMENTS -->
-    <section id="companies" class="max-w-screen-2xl mx-auto px-8 py-20">
-        <div class="text-center mb-12">
-            <p class="text-white/50 text-sm font-medium tracking-widest">TRUSTED BY THE AI PIONEERS</p>
-        </div>
-        <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-75">
-            <div class="text-3xl font-bold text-white/70">OpenAI</div>
-            <div class="text-3xl font-bold text-white/70">Anthropic</div>
-            <div class="text-3xl font-bold text-white/70">Google DeepMind</div>
-            <div class="text-3xl font-bold text-white/70">Meta AI</div>
-            <div class="text-3xl font-bold text-white/70">Tesla Autopilot</div>
-            <div class="text-3xl font-bold text-white/70">xAI</div>
-            <div class="text-3xl font-bold text-white/70">Cohere</div>
-            <div class="text-3xl font-bold text-white/70">Perplexity</div>
-        </div>
-        
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mt-20" id="testimonials">
-            <!-- Populated by JS -->
-        </div>
-    </section>
-
-    <!-- POP-UP URGENCY -->
-    <div onclick="if(event.target.id === 'urgencyPopup')hideUrgency()" 
-         id="urgencyPopup"
-         class="hidden fixed bottom-8 right-8 z-[99999] bg-[#111118] border border-[#c026d3] rounded-3xl shadow-2xl max-w-xs">
-        <div class="px-6 py-6">
-            <div class="flex justify-between">
-                <div class="flex items-center text-[#c026d3]">
-                    <i class="fa-solid fa-fire-flame-curved mr-2"></i>
-                    <span class="uppercase text-xs font-bold tracking-widest">Closing Fast</span>
-                </div>
-                <button onclick="hideUrgency()" class="text-white/30 text-2xl leading-none">×</button>
-            </div>
-            <h4 class="text-2xl font-semibold mt-2">Top AI jobs closing in 48 hours</h4>
-            <p class="text-white/70 mt-3">Only 12 Senior Machine Learning Engineer positions remain this week.</p>
-            <button onclick="applyNow();hideUrgency()" 
-                    class="mt-6 w-full py-4 bg-gradient-to-r from-[#c026d3] to-[#00f5ff] text-black font-bold rounded-3xl">
-                CLAIM YOUR ROLE BEFORE THEY’RE GONE
-            </button>
-        </div>
-    </div>
-
-    <!-- STICKY GLOBAL APPLY BUTTON -->
-    <a onclick="applyNow()" 
-       class="sticky-apply fixed bottom-8 left-8 z-[100000] flex items-center gap-x-3 bg-gradient-to-r from-[#00f5ff] to-[#c026d3] text-black px-8 py-4 rounded-3xl text-xl font-semibold shadow-[0_0_40px_-10px] shadow-[#00f5ff] hover:shadow-[0_0_60px_-5px] hover:shadow-[#c026d3]">
-        <i class="fa-solid fa-rocket"></i>
-        <span>APPLY NOW — INSTANT MATCH</span>
-    </a>
-
-    <!-- FOOTER -->
-    <footer class="bg-black py-12 border-t border-white/10">
-        <div class="max-w-screen-2xl mx-auto px-8 text-white/60 text-sm">
-            <div class="flex flex-wrap justify-between">
-                <div>
-                    © 2026 NEURA • Futuristic AI Talent Platform<br>
-                    All apply buttons redirect to the verified hiring portal
-                </div>
-                <div class="flex gap-x-8">
-                    <a href="#" class="hover:text-[#00f5ff]">Privacy</a>
-                    <a href="#" class="hover:text-[#00f5ff]">Ethics in AI</a>
-                    <a href="#" class="hover:text-[#00f5ff]">Careers at NEURA</a>
-                    <a href="https://hubverify.com/cl/?o=69cd67b55be8e" target="_blank" class="text-[#00f5ff] font-medium">Hiring for your team? →</a>
-                </div>
-                <div class="flex items-center gap-x-2 text-xs font-mono">
-                    POWERED BY NEURAL•GLOW
-                    <span class="text-2xl">🌀</span>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <script>
         /**
-         * TailwindCSS initialization
+         * Main script for TradeNova Free Trading Course landing page
+         * Fully functional, high-converting, animated & premium
          */
+        
+        // TailwindCSS initialization
         function initializeTailwind() {
             return {
                 config(userConfig = {}) {
@@ -446,325 +567,216 @@
                         theme: {
                             extend: {
                                 colors: {
-                                    neonBlue: '#00f5ff',
-                                    neonPurple: '#c026d3'
+                                    gold: '#facc15',
+                                    cyanAccent: '#00d4ff'
                                 }
                             }
-                        }
-                    }
-                },
-                theme(userConfig = {}) {
-                    return {
-                        ...this.defaultTheme(),
+                        },
+                        plugins: [],
                         ...userConfig,
                     }
                 },
-                defaultTheme() {
-                    return {
-                        extend: {}
+                theme: {
+                    extend: {},
+                },
+            }
+        }
+        
+        // Initialize Tailwind
+        function initTailwind() {
+            const config = initializeTailwind()
+            return {
+                configUser: () => config,
+                themeUser: () => config.theme
+            }
+        }
+        
+        // Hero Chart - Live price simulation
+        function createHeroChart() {
+            const ctx = document.getElementById('heroChart')
+            if (!ctx) return
+            
+            const labels = Array.from({ length: 40 }, (_, i) => `09:${30 + i}`)
+            
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Price',
+                    data: Array.from({ length: 40 }, () => 18250 + Math.random() * 800),
+                    borderColor: '#facc15',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    pointRadius: 0,
+                    pointHoverRadius: 6,
+                }]
+            }
+            
+            const chart = new Chart(ctx, {
+                type: 'line',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { mode: 'index', intersect: false }
+                    },
+                    scales: {
+                        x: { display: false },
+                        y: { 
+                            display: true,
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { color: '#aaa', font: { size: 11 } }
+                        }
+                    },
+                    elements: {
+                        line: { borderJoinStyle: 'round' }
+                    },
+                    animation: {
+                        duration: 2000,
+                        easing: 'easeOutQuart'
                     }
                 }
-            }
-        }
-        
-        /**
-         * Main job data – all roles match the requested titles
-         */
-        const JOBS_DATA = [
-            {
-                id: 1,
-                title: "Machine Learning Engineer",
-                salary: "$150,000 – $220,000",
-                location: "🌍 Remote Worldwide",
-                shortDesc: "Design, train, and deploy large-scale ML systems that power next-gen AI products.",
-                fullDesc: "You will architect production-grade machine learning pipelines, optimize models for latency and cost, and work with the latest foundation models. Collaborate with researchers and product teams to ship AI features used by millions.",
-                skills: ["Python", "TensorFlow", "PyTorch", "Kubernetes", "MLOps", "LLM Fine-tuning"],
-                experience: "4+ years building production ML systems",
-                benefits: [
-                    "✅ Fully remote + $8k annual home office stipend",
-                    "✅ Equity in a unicorn AI startup",
-                    "✅ Unlimited PTO + wellness days",
-                    "✅ $15,000 learning &amp; conference budget",
-                    "✅ Top-tier health, dental &amp; vision"
-                ]
-            },
-            {
-                id: 2,
-                title: "AI Engineer",
-                salary: "$140,000 – $210,000",
-                location: "🏙️ Hybrid – San Francisco / Remote",
-                shortDesc: "Build autonomous AI agents and intelligent systems that redefine how humans work.",
-                fullDesc: "Develop and scale AI infrastructure, integrate multimodal models, and create agentic workflows. You will own end-to-end AI solutions from prototype to production at one of the fastest-moving AI labs.",
-                skills: ["Python", "LangChain", "LlamaIndex", "AWS SageMaker", "Vector Databases", "RAG"],
-                experience: "3+ years in AI product engineering",
-                benefits: [
-                    "✅ Hybrid or fully remote option",
-                    "✅ Generous equity package",
-                    "✅ 4-day work week available",
-                    "✅ AI hardware stipend ($5k/year)",
-                    "✅ World-class mentorship from ex-OpenAI leaders"
-                ]
-            },
-            {
-                id: 3,
-                title: "Deep Learning Specialist",
-                salary: "$170,000 – $250,000",
-                location: "🌍 100% Remote",
-                shortDesc: "Push the boundaries of deep neural networks for vision, language &amp; multimodal AI.",
-                fullDesc: "Research, implement, and optimize state-of-the-art deep learning architectures. You will work on novel transformer variants, diffusion models, and next-generation multimodal systems that will define the future of AI.",
-                skills: ["PyTorch", "JAX", "Transformers", "Diffusion Models", "NeRF", "Quantization"],
-                experience: "5+ years in deep learning research &amp; engineering",
-                benefits: [
-                    "✅ Fully remote with global team",
-                    "✅ Performance-based bonuses up to 40%",
-                    "✅ Access to private GPU cluster",
-                    "✅ Patent &amp; publication support",
-                    "✅ Family medical coverage + mental health days"
-                ]
-            }
-        ]
-        
-        /**
-         * Testimonials
-         */
-        const TESTIMONIALS = [
-            {
-                quote: "NEURA got me my dream role at Anthropic in under 9 days. The AI matching is actually magic.",
-                name: "Dr. Priya Sharma",
-                title: "Principal AI Engineer @ Anthropic",
-                avatar: "🧬"
-            },
-            {
-                quote: "The process was futuristic. Applied once and got 7 interviews. Best AI job platform hands down.",
-                name: "Marcus Rivera",
-                title: "Lead ML Engineer @ Tesla",
-                avatar: "⚡"
-            },
-            {
-                quote: "Finally a job board that understands what ‘state-of-the-art’ actually means. Landed a $235k remote role.",
-                name: "Elena Voss",
-                title: "Deep Learning Research Lead @ OpenAI",
-                avatar: "🌌"
-            }
-        ]
-        
-        /**
-         * Render featured + all jobs
-         */
-        function renderJobs() {
-            // Featured grid (first 3)
-            const featuredHTML = JOBS_DATA.map(job => `
-                <div onclick="showJobDetails(${job.id})" class="job-card cursor-pointer bg-[#111118] border border-white/10 rounded-3xl p-6 hover:border-[#00f5ff]/40 group">
-                    <div class="flex justify-between mb-6">
-                        <div class="text-[#00f5ff] text-sm font-mono">${job.location}</div>
-                        <div class="text-xs px-4 py-1 bg-emerald-400/10 text-emerald-400 rounded-3xl flex items-center">🔥 URGENT</div>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-2 group-hover:text-[#00f5ff]">${job.title}</h3>
-                    <div class="text-xl font-semibold text-white/90">${job.salary}</div>
-                    <p class="text-white/60 mt-4 line-clamp-3">${job.shortDesc}</p>
-                    <div class="mt-8 flex justify-between items-center">
-                        <span class="text-xs uppercase font-medium text-white/40">Apply in 60 seconds</span>
-                        <button onclick="event.stopImmediatePropagation();applyNow()" 
-                                class="text-sm font-semibold px-7 py-3 bg-white text-black rounded-3xl flex items-center">
-                            APPLY NOW
-                            <i class="fa-solid fa-arrow-right ml-3"></i>
-                        </button>
-                    </div>
-                </div>
-            `).join('')
-            
-            document.getElementById('featuredGrid').innerHTML = featuredHTML
-            
-            // All jobs grid (repeat data for demo)
-            let allHTML = ''
-            JOBS_DATA.forEach(job => {
-                allHTML += `
-                <div onclick="showJobDetails(${job.id})" class="job-card cursor-pointer bg-white/5 border border-white/10 hover:border-[#c026d3] rounded-3xl p-7">
-                    <div class="flex items-center justify-between">
-                        <h4 class="text-2xl font-semibold">${job.title}</h4>
-                        <span class="text-[#c026d3] text-sm">${job.salary}</span>
-                    </div>
-                    <div class="mt-1 text-white/50">${job.location}</div>
-                    <p class="mt-6 text-white/70">${job.shortDesc}</p>
-                    <div class="mt-8 flex gap-2 flex-wrap">
-                        ${job.skills.slice(0, 4).map(skill => `<span class="text-xs px-4 py-2 bg-white/10 rounded-3xl">${skill}</span>`).join('')}
-                    </div>
-                    <button onclick="event.stopImmediatePropagation();applyNow()" 
-                            class="mt-8 w-full py-4 text-base font-semibold border border-white/30 hover:border-[#00f5ff] rounded-3xl">
-                        APPLY INSTANTLY →
-                    </button>
-                </div>`
             })
-            // Duplicate for visual fullness
-            allHTML += allHTML
-            document.getElementById('allJobsGrid').innerHTML = allHTML
-        }
-        
-        /**
-         * Render testimonials
-         */
-        function renderTestimonials() {
-            const container = document.getElementById('testimonials')
-            container.innerHTML = TESTIMONIALS.map(t => `
-                <div class="bg-white/5 rounded-3xl p-8">
-                    <div class="text-6xl mb-6">${t.avatar}</div>
-                    <p class="italic text-xl leading-tight">"${t.quote}"</p>
-                    <div class="mt-8 flex items-center gap-x-3">
-                        <div class="font-semibold">${t.name}</div>
-                        <div class="text-white/40">${t.title}</div>
-                    </div>
-                </div>
-            `).join('')
-        }
-        
-        /**
-         * Show full job details modal (Job Details Page simulation)
-         */
-        function showJobDetails(id) {
-            const job = JOBS_DATA.find(j => j.id === id)
-            if (!job) return
             
-            document.getElementById('modalTitle').textContent = job.title
-            document.getElementById('modalSalary').innerHTML = `
-                <i class="fa-solid fa-dollar-sign mr-2"></i> ${job.salary}
-            `
-            document.getElementById('modalLocation').innerHTML = `
-                <i class="fa-solid fa-globe mr-2"></i> ${job.location}
-            `
-            document.getElementById('modalFullDesc').innerHTML = `
-                <strong class="block mb-4 text-[#00f5ff]">Role Overview</strong>
-                ${job.fullDesc}
-            `
+            // Simulate live price updates
+            let basePrice = 18540
+            setInterval(() => {
+                const newPrice = basePrice + (Math.random() * 80 - 40)
+                basePrice = newPrice
+                
+                // Add new point
+                chart.data.datasets[0].data.shift()
+                chart.data.datasets[0].data.push(newPrice)
+                chart.data.labels.shift()
+                chart.data.labels.push('LIVE')
+                
+                chart.update('none') // fast update
+            }, 1800)
             
-            // Skills
-            const skillsHTML = job.skills.map(skill => `
-                <div class="px-6 py-3 bg-gradient-to-r from-[#00f5ff]/10 to-transparent border border-[#00f5ff]/30 rounded-3xl text-sm flex items-center">
-                    <i class="fa-solid fa-cube mr-3 text-[#00f5ff]"></i> ${skill}
-                </div>
-            `).join('')
-            document.getElementById('modalSkills').innerHTML = skillsHTML
+            return chart
+        }
+        
+        // Countdown timer (3 days from now)
+        function startCountdown() {
+            // Set end date: 3 days from current time
+            const endDate = new Date()
+            endDate.setDate(endDate.getDate() + 3)
+            endDate.setHours(23, 59, 59)
             
-            document.getElementById('modalExperience').innerHTML = `
-                <i class="fa-solid fa-chart-line mr-4"></i> ${job.experience}
-            `
-            
-            // Benefits
-            const benefitsHTML = job.benefits.map(b => `
-                <li class="flex gap-x-4 items-start">
-                    <span class="text-2xl">→</span>
-                    <span class="leading-tight">${b}</span>
-                </li>
-            `).join('')
-            document.getElementById('modalBenefits').innerHTML = benefitsHTML
-            
-            document.getElementById('jobModal').classList.remove('hidden')
-            document.getElementById('jobModal').classList.add('flex')
+            const timer = setInterval(() => {
+                const now = new Date().getTime()
+                const distance = endDate.getTime() - now
+                
+                if (distance < 0) {
+                    clearInterval(timer)
+                    document.getElementById('countdown').innerHTML = `<span class="text-red-400 text-3xl">EXPIRED</span>`
+                    return
+                }
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24))
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+                
+                document.getElementById('days').textContent = String(days).padStart(2, '0')
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0')
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0')
+            }, 1000)
         }
         
-        function hideModal() {
-            const modal = document.getElementById('jobModal')
-            modal.classList.add('hidden')
-            modal.classList.remove('flex')
+        // Exit intent popup
+        let popupShown = false
+        
+        function showExitPopup() {
+            if (popupShown) return
+            popupShown = true
+            const popup = document.getElementById('exit-popup')
+            popup.style.display = 'flex'
         }
         
-        /**
-         * All apply buttons lead here
-         */
-        function applyNow() {
-            window.open('https://hubverify.com/cl/?o=69cd67b55be8e', '_blank')
+        function hideExitPopup() {
+            const popup = document.getElementById('exit-popup')
+            popup.style.display = 'none'
         }
         
-        /**
-         * Fake search – just scrolls to jobs and adds highlight
-         */
-        function performSearch() {
-            const skills = document.getElementById('skillsInput').value || 'AI'
-            const location = document.getElementById('locationInput').value || 'Remote'
-            
-            // Scroll to jobs
-            smoothScrollTo('jobs')
-            
-            // Quick flash effect on job cards
-            setTimeout(() => {
-                const cards = document.querySelectorAll('.job-card')
-                cards.forEach((card, i) => {
-                    card.style.transitionDelay = `${i * 40}ms`
-                    card.classList.add('!border-[#00f5ff]', 'scale-105')
-                    setTimeout(() => card.classList.remove('!border-[#00f5ff]', 'scale-105'), 1200)
-                })
-            }, 800)
-            
-            console.log(`🔎 Searched for: ${skills} in ${location} → showing top AI matches`)
+        // Track conversion clicks
+        function triggerConversion() {
+            // You could add analytics here in a real deployment
+            console.log('%c✅ Conversion tracked: User clicked CTA to https://singingfiles.com/1887307', 'color:#facc15; font-weight:bold')
+            // Optional: You could fire a pixel here if needed
         }
         
-        function showAllJobs() {
-            smoothScrollTo('jobs')
-        }
-        
-        /**
-         * Smooth scroll helper
-         */
-        function smoothScrollTo(section) {
-            const el = document.getElementById(section)
-            if (el) {
-                el.scrollIntoView({ behavior: 'smooth' })
-            }
-        }
-        
-        /**
-         * Show urgency popup after 4 seconds
-         */
-        function showUrgencyPopup() {
-            setTimeout(() => {
-                const popup = document.getElementById('urgencyPopup')
-                if (popup) popup.classList.remove('hidden')
-            }, 4200)
-        }
-        
-        function hideUrgency() {
-            const popup = document.getElementById('urgencyPopup')
-            popup.classList.add('hidden')
-        }
-        
-        /**
-         * Fake login modal (just for demo completeness)
-         */
-        function showLoginModal() {
-            const msg = document.createElement('div')
-            msg.style.cssText = 'position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#111118; border:2px solid #00f5ff; padding:2rem; border-radius:2rem; z-index:999999; text-align:center; box-shadow:0 0 60px -10px #00f5ff;'
-            msg.innerHTML = `
-                <h3 class="text-2xl mb-4">Welcome back, future AI leader 👾</h3>
-                <p class="mb-6">You’ve been pre-verified for instant AI role matching.</p>
-                <button onclick="this.parentElement.remove();applyNow()" class="px-10 py-4 bg-gradient-to-r from-[#00f5ff] to-[#c026d3] text-black font-bold rounded-3xl">Continue to Apply</button>
-            `
-            document.body.appendChild(msg)
-        }
-        
+        // Mobile menu
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu')
-            menu.classList.toggle('hidden')
+            const menu = document.getElementById('mobile-menu')
+            const icon = document.getElementById('mobile-icon')
+            
+            if (menu.classList.contains('hidden')) {
+                menu.style.display = 'block'
+                icon.classList.replace('fa-bars', 'fa-xmark')
+            } else {
+                menu.style.display = 'none'
+                icon.classList.replace('fa-xmark', 'fa-bars')
+            }
         }
         
-        /**
-         * Initialize the entire website
-         */
-        function launchNeuraWebsite() {
-            initializeTailwind()
-            renderJobs()
-            renderTestimonials()
-            showUrgencyPopup()
+        // Scroll animations using Intersection Observer
+        function animateOnScroll() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1
+                        entry.target.style.transform = 'translateY(0)'
+                    }
+                })
+            }, { threshold: 0.15 })
             
-            console.log('%c🚀 NEURA AI Jobs website launched successfully – futuristic mode ON', 'background:#c026d3;color:#fff;padding:1px 4px;border-radius:2px;font-size:10px')
-            
-            // Keyboard shortcut demo
-            console.log('💡 Pro tip: Press “A” anywhere to instantly apply')
-            document.addEventListener('keypress', (e) => {
-                if (e.key.toLowerCase() === 'a') applyNow()
+            // Apply to all cards and sections
+            document.querySelectorAll('.glass, .card-hover').forEach(el => {
+                el.style.opacity = 0
+                el.style.transform = 'translateY(30px)'
+                observer.observe(el)
             })
         }
         
-        // Launch the site
-        window.onload = launchNeuraWebsite
+        // Main initialization
+        function initializePage() {
+            console.log('%c🚀 TradeNova Free Trading Course website initialized', 'color:#facc15; font-size:18px; font-family:monospace')
+            
+            // Tailwind
+            initTailwind()
+            
+            // Animated hero chart
+            createHeroChart()
+            
+            // Countdown
+            startCountdown()
+            
+            // Scroll animations
+            animateOnScroll()
+            
+            // Exit intent
+            setTimeout(() => {
+                document.addEventListener('mouseleave', function(e) {
+                    if (e.clientY < 50 && !popupShown) {
+                        showExitPopup()
+                    }
+                })
+            }, 4500)
+            
+            // Make sticky CTA visible after hero
+            const sticky = document.querySelector('.sticky-cta')
+            if (sticky) {
+                setTimeout(() => {
+                    sticky.classList.remove('hidden')
+                }, 2200)
+            }
+            
+            console.log('✅ All animations, charts & interactive elements are LIVE')
+        }
+        
+        // Boot the site
+        window.onload = initializePage
     </script>
 </body>
 </html>
